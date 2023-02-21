@@ -17,7 +17,7 @@ For more information about our technology, check out the following resources:
 
 ## Proof System
 
-- [**RISC Zero Proof System Spec (draft)**](../static/proof-system-in-detail.pdf) - A technical specification for the RISC Zero proof system.
+- [**RISC Zero Proof System Spec (draft)**](https://www.risczero.com/proof-system-in-detail.pdf) - A technical specification for the RISC Zero proof system.
 
 - [**Proof System Explainers**](explainers/proof-system/what_is_a_receipt.md) - These materials introduce the zero-knowledge proof system that makes it possible to build `trustless, verifiable software`. 
 
