@@ -40,10 +40,6 @@ subgraph x[The receipt tells us:]
 E---H(What binary executed in the ZKVM<br>Whether the execution<br>followed expected behavior<br/><br/>Whether the journal or image ID<br/>have changed)
 F---I(The values of all contents<br>written to the public journal)
 end
-style B fill:#3c6464
-style x fill:none, stroke:none
-style H fill:none,stroke:none
-style I fill:none,stroke:none
 ```
 
 Before being executed on the zkVM, guest source code is converted into a RISC-V ELF binary. 

@@ -18,22 +18,31 @@ If you have questions/feedback or if you find errors, please let us know on Twit
 sequenceDiagram
     Note over Prover,Verifier: Phase 1: Commiting the  Execution Trace
     Note over Prover: Prover runs iNTTs to construct <br/>a Trace Polynomial for each Trace Column, then runs NTTs <br/>to evaluate each Trace Polynomial over an Evaluation Domain,<br/>and commits those evaluations to Merkle Trees.
-    Prover->>Verifier: Prover sends Merkle Roots <br/>for Trace Data Polynomials <br/>and Trace Control Polynomials
-    Verifier->>Prover: Verifier returns PLONK <br/>mixing parameters
-    Prover->>Verifier: Prover sends Merkle Roots for <br/>PLONK Polynomials 
+    Note right of Prover:  Prover sends Merkle Roots <br/>for Trace Data Polynomials <br/>and Trace Control Polynomials
+    Prover->>Verifier: 
+    Note left of Verifier: Verifier returns PLONK <br/>mixing parameters
+    Verifier->>Prover: 
+    Note right of Prover: Prover sends Merkle Roots for <br/>PLONK Polynomials 
+    Prover->>Verifier: 
     Note over Prover,Verifier: Phase 2: Validating the Trace
-    Verifier->>Prover: Verifier returns constraint mixing parameter, alpha
+    Note left of Verifier: Verifier returns constraint <br/>mixing parameter, alpha
+    Verifier->>Prover: 
     Note over Prover: Prover uses alpha to mix Constraint Polynomials <br/>into a Mixed Constraint Polynomial, <br/>then divides by the public Zeroes Polynomial <br/>to construct the High Degree Validity Polynomial,<br/> splits it into a few Low Degree Validity Polynomials, and finally <br/>commits evaluations of the Low Degree Validity Polynomial a to Merkle Tree.
-    Prover->>Verifier: Prover sends Merkle Root <br/>for Low Degree Validity Polynomials
+    Note right of Prover: Prover sends Merkle Root <br/>for Low Degree Validity Polynomials
+    Prover->>Verifier: 
     Note over Prover,Verifier: Phase 3: The DEEP Technique
-    Verifier->>Prover: Verifier chooses a DEEP test point
+    Note left of Verifier: Verifier chooses a DEEP test point
+    Verifier->>Prover: 
     Note over Prover: To support DEEP test, Prover computes "necessary evaluations" <br/> of Trace Polynomials and Low Degree Validity Polynomials. 
     Note over Prover: Prover also computes the coefficients of the DEEP polynomials
-    Prover->>Verifier: Prover sends "necessary evaluations" <br/>and coefficients of DEEP polynomials
-    Verifier->>Prover: Verifier returns a DEEP mixing parameter
+    Note right of Prover: Prover sends "necessary evaluations" <br/>and coefficients of DEEP polynomials
+    Prover->>Verifier: 
+    Note left of Verifier: Verifier returns a DEEP mixing parameter
+    Verifier->>Prover: 
     Note over Prover: Prover uses DEEP Mixing Parameter to mix <br/> the DEEP polynomials, forming the FRI polynomial. 
-    Prover->>Verifier: Prover sends Merkle Root <br/> for the FRI polynomial
-    Note over Prover,Verifier: Phase 4: The FRI Protocol. <br/>We omit the details of the [FRI Protocol](../../reference-docs/about-fri.md) for brevity.
+    Note right of Prover: Prover sends Merkle Root <br/> for the FRI polynomial
+    Prover->>Verifier: 
+    Note over Prover,Verifier: Phase 4: The FRI Protocol. <br/>We omit the details of the <br/>FRI protocol for brevity.
   
 ```
 ## The RISC Zero Proof System: A Step-By-Step Description
