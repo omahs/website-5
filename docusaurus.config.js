@@ -14,7 +14,7 @@ const config = {
   baseUrl: '/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
-  favicon: 'img/favicon.ico',
+  favicon: 'img/logo.png',
   organizationName: 'risc0', // Usually your GitHub org/user name.
   projectName: 'website2', // Usually your repo name.
   presets: [
