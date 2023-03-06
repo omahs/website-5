@@ -49,7 +49,7 @@ The RISC Zero zkVM Proof System Whitepaper can be found **[AT THIS LINK](https:/
 
 The best place to started with our zkVM is our [**Docs**](https://www.risczero.com/docs). Within it you will find our [**project template**](https://www.risczero.com/docs/examples/understanding_template), which acts as the foundations for any RISC Zero project. It will also help in giving a good feel for how each component of our project works together. 
 
-Moving on from this template, the [**RISC Zero Digital Signature Demo**](https://www.risczero.com/docs/examples/digital-signature) and [**Password Validity Checker**](https://www.risczero.com/docs/examples/password-checker) are great examples of how our zkVM can be used to add security and privacy into existing technologies. Finally, our [**website**](https://www.risczero.com/docs/explainers) and [**youtube channel**](https://www.youtube.com/@risczero) have a variety of materials that should help you better understand the technical foundations of the RISC Zero zkVM.
+Moving on from this template, the [**RISC Zero Digital Signature Demo**](https://github.com/risc0/risc0/tree/main/examples/digital-signature) and [**Password Validity Checker**](https://www.risczero.com/docs/examples/password-checker) are great examples of how our zkVM can be used to add security and privacy into existing technologies. Finally, our [**website**](https://www.risczero.com/docs/explainers) and [**youtube channel**](https://www.youtube.com/@risczero) have a variety of materials that should help you better understand the technical foundations of the RISC Zero zkVM.
 
 **ZKHack zkVM Demos**
 
