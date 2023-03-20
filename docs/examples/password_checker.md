@@ -19,7 +19,7 @@ In some ways, Alice's process follows convention. Alice generates a `password` t
 * Alice's `host driver program` shares a password and salt with the `guest zkVM` and initiates guest program execution.
 * The `guest zkVM program` checks Alice's password against a set of validity requirements.
 * If the password is valid, it is hashed with the provided salt using SHA-256. If not, the program panics and no computational receipt is generated.
-* The guest program generates a salted hash of Alice's password and commits it to a `journal`, part of a computational [`receipt`](../explainers/proof-system/what_is_a_receipt.md).
+* The guest program generates a salted hash of Alice's password and commits it to a `journal`, part of a computational [`receipt`](https://docs.rs/risc0-zkvm/latest/risc0_zkvm/receipt/index.html).
 * Alice sends the receipt to Bob's Identity Service.
 
 # What Information Can A Zero-Knowledge Proof Provide?

@@ -5,7 +5,7 @@
 Implementation and documentation for Reed-Solomon encoding is in the `risc0-zkp-core` [Rust crate](https://github.com/risc0/risc0#rust-crates).
 
 ## Basic Function
-A RISC Zero [receipt](../explainers/proof-system/what_is_a_receipt.md) demonstrates the validity of the associated [execution trace](../explainers/proof-system/what_is_a_trace.md) by encoding  the execution instructions and the trace data into polynomials and then making various assertions about those polynomials. 
+A RISC Zero [receipt](https://docs.rs/risc0-zkvm/latest/risc0_zkvm/receipt/struct.Receipt) demonstrates the validity of the associated [execution trace](../explainers/proof-system/what_is_a_trace.md) by encoding  the execution instructions and the trace data into polynomials and then making various assertions about those polynomials. 
 We refer to this process as _arithmetization of the trace_, and RISC Zero's arithmetization is based on Reed Solomon encoding.
 
 ## Background

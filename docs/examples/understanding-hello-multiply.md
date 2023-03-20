@@ -31,7 +31,7 @@ When the host code executes, it creates a prover instance that is responsible fo
     let mut prover = Prover::new(MULTIPLY_ELF, MULTIPLY_ID).unwrap();
 ```
 
- The prover runs an ELF binary of the zkVM guest code. After the guest code has executed, the prover returns a [receipt](../explainers/proof-system/what_is_a_receipt.md). In our example, these are accomplished with the following line in the `factors/src/main.rs` host source code:
+ The prover runs an ELF binary of the zkVM guest code. After the guest code has executed, the prover returns a [receipt](https://docs.rs/risc0-zkvm/latest/risc0_zkvm/receipt/index.html). In our example, these are accomplished with the following line in the `factors/src/main.rs` host source code:
 
 ```
 let receipt = prover.run().unwrap();

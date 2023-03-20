@@ -4,7 +4,7 @@ sidebar_position: 3
 
 # Constructing a Seal
 
-> The [seal](https://docs.rs/risc0-zkvm/latest/risc0_zkvm/receipt/struct.Receipt.html#structfield.seal) is the part of the [receipt](what_is_a_receipt.md) that allows third-parties to authenticate the validity of the [journal](../zkvm/zkvm_overview.md). 
+> The [seal](https://docs.rs/risc0-zkvm/latest/risc0_zkvm/receipt/struct.Receipt.html#structfield.seal) is the part of the [receipt](https://docs.rs/risc0-zkvm/latest/risc0_zkvm/receipt/struct.Receipt.html) that allows third-parties to authenticate the validity of the [journal](https://docs.rs/risc0-zkvm/latest/risc0_zkvm/receipt/struct.Receipt.html#structfield.journal). 
 > It's the zero-knowledge proof that sits at the crux of our technology, showing that the journal was faithfully constructed (according to the program defined by the [Image ID](../zkvm/zkvm_overview.md)). 
 
 The construction of a seal is highly technical, relying on several recent advances in the world of zero-knowledge cryptography. 
