@@ -24,9 +24,9 @@ I have often said that I think I will probably spend the rest of my career tryin
 
 If you are interested in joining us, check out our careers page here: 
 
-* https://boards.greenhouse.io/risczero
+* https://jobs.lever.co/risczero.com
 
-If you want to learn more about how Zero Knowlege works, here are some resources: 
+If you want to learn more about how ZKPs work, here are some resources: 
 
 * https://www.youtube.com/watch?v=fOGdb1CTu5c&t=683s
 * https://blog.chain.link/what-is-a-zero-knowledge-proof-zkp/
