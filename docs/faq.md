@@ -10,7 +10,7 @@ id: tech_faq
   - [ZKP System](#zkp-system)
   - [Code Project Help](#code-project-help)
   - [Guest / Host Interactions](#guest--host-interactions)
-  - [Data Processing \& Performance](#data-processing--performance)
+  - [Data Processing & Performance](#data-processing--performance)
 
 -------------------------------
 
@@ -88,6 +88,14 @@ Q: What types of programs does the zkVM support in Rust?
 <br/>
 A: The zkVM is actively expanding experimental support for the Rust standard library. 
 If you run into issues, we recommend using crates with no_std options. You may also find a solution on our <a href="">Discord</a> or in our <a href="https://github.com/risc0/risc0/issues">Github issues</a>.
+</details>
+<br/>
+<details closed>
+<summary>
+Q: My code doesn't build in the zkVM guest, even though it does build outside of the zkVM. What's wrong?
+</summary>
+<br/>
+A: Some of these issues have workarounds, which we track on GitHub under the <a href="https://github.com/risc0/risc0/issues?q=is%3Aissue+is%3Aopen+label%3A%22rust+guest+workarounds%22">"rust guest workarounds"</a> tag. If you can't find your problem here you can open a <a href="https://github.com/risc0/risc0/issues">new issue</a> or reach out to us on <a href="https://discord.gg/risczero">Discord</a>.
 </details>
 <br/>
 

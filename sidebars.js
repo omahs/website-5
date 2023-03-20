@@ -64,6 +64,11 @@ module.exports = {
       }
     ]
   },
+    {
+      type: 'doc',
+      label: 'FAQ',
+      id: 'tech_faq',
+    },
     { 
       type: 'link',
       label: 'ZK Hack III Workshop',
