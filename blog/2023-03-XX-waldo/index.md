@@ -11,8 +11,7 @@ This is *kind of* like a zero-knowledge proof (with less cryptography and more c
 
 This example implements a RISC Zero program which allows a prover to convince a verifier they know Waldo’s location in a public Where’s Waldo puzzle, without revealing Waldo’s coordinates.
 
-You can find the source code for this example in the [waldo project in our examples directory](https://github.com/risc0/risc0/tree/main/examples/waldo).
-Browse the code, and run the example yourself, as your read to get a solid understanding for its parts.
+To get a better understanding, browse the [source code](https://github.com/risc0/risc0/tree/main/examples/waldo) and run the example yourself. 
 
 ## Overview
 
