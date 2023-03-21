@@ -80,34 +80,6 @@ These modules implement the ideas described above.
 
 Similar Merkle tree abstractions can be used to, for example, ensure a secret word is part of a dictionary, a payment destination is not in a list of banned addresses, or that a user is in the set of authorized users.
 
-### zkVM Communication
-
-In the previous section, we said the guest can “ask the host” for the data it needs.
-This is enabled by a communication mechanism that allows the guest to send messages to the host, and for the host to provide data to the guest.
-Because the host is “untrusted,” the guest will often need to verify the data that the host sends, as we described above by verifying the Merkle path.
-
-The most common example of this communication is calling `env::read`, provided by the [risc0_zkvm::guest module](https://docs.rs/risc0-zkvm/latest/risc0_zkvm/guest/index.html), inside the guest.
-In the other examples, such as the password checker and Wordle, the host provided all the input to the guest before starting the program.
-But how to handle cases where the guest needs data that is harder to predict ahead of time, such as an element from a database or the square root of a number.
-In these cases it’s much better to have some way for the guest to ask for more data at runtime.
-
-In the RISC Zero zkVM, the guest and host can communicate at runtime through syscalls.
-These syscalls are used to implement the `env::read` and `env::commit` functions in the guest, and the developer can create new syscalls for their own needs.
-In this example, a syscall is used to allow the guest to request chunks of the Where’s Waldo image on demand as a part of the `MerkleTree` and `VectorOracle` types.
-Using these syscalls allows us to write more flexible code that is more readable and follows familiar paradigms.
-
-Relative to the guest, the host is a very powerful computer and is able to do things the guest can't, such as accessing files or the Internet.
-Implementing a syscall gives a way for the guest to make requests to the host.
-At a basic level, syscalls are pretty simple.
-Create a function that accepts the guest input as bytes, and returns a slice of bytes as output, then register this function as a syscall when creating the prover.
-When the guest is running, it can use the registered syscall name to invoke the syscall, passing bytes as input and receiving bytes as output.
-
-In the `waldo_core::merkle` module, you can see how the syscall for the Merkle tree vector oracle is defined, and in `prove.rs` you can see where it gets registered when building the prover.
-
-Syscalls are a powerful tool to extend what can be done in the zkVM guest.
-It is often exponentially more efficient to *verify* a result than to compute it in the first place, and when that is the case it often unlocks new possibilities to allow the host to run the computation, and the guest to verify it.
-Keep this in mind when you need to run a guest with access to a large dataset, or to do some heavy computation can’t be reasonably completed inside the zkVM.
-
 ### Image Manipulation
 
 In order to manipulate the image and cut-out Waldo, and in particular to crop and apply a mask, this example utilizes the popular `image` crate.
