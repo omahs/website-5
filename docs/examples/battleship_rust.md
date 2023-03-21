@@ -21,7 +21,7 @@ In this example, we'll walk through an implementation of the popular two-player 
 
 ### Game background
 
-The game starts with two players, each placing their ships on their private board of square grid cells. After placement the ships remain stationery and players take turns attempting to sink them by shelling grid cells until a player has won by sinking their opponent's ships. Each turn consists of a message exchange, or "round", where a player fires at coordinates on their opponent's board followed by an acknowledgement from the other player containing information about hit or miss, and if a ship has been sunk. Players alternate turns until a player has lost all their ships, ending the game.
+The game starts with two players, each placing their ships on their private board of square grid cells. After placement the ships remain stationary and players take turns attempting to sink them by shelling grid cells until a player has won by sinking their opponent's ships. Each turn consists of a message exchange, or "round", where a player fires at coordinates on their opponent's board followed by an acknowledgement from the other player containing information about hit or miss, and if a ship has been sunk. Players alternate turns until a player has lost all their ships, ending the game.
 
 See [Wikipedia: Battleship_(game)](https://en.wikipedia.org/wiki/Battleship_(game)) for details on the game's history and rules.
 
