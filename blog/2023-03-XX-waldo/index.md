@@ -1,4 +1,9 @@
-# Understanding Waldo
+---
+slug: waldo
+title: Where's Waldo on RISC Zero
+authors: [victor]
+tags: [zkvm, waldo]
+---
 
 [Where’s Waldo](https://en.wikipedia.org/wiki/Where%27s_Wally%3F) is a [favorite analogy](https://medium.com/swlh/a-zero-knowledge-proof-for-wheres-wally-930c21e55399) for zero-knowledge proofs.
 In particular, if you want to prove you know where Waldo is, without revealing his location, you can:
@@ -95,4 +100,5 @@ And if you ever try to import a library and it doesn't work for some reason, it 
 
 ## Run this example
 
-You can find this example in the [risc0-rust-examples GitHub repository](Understanding%20Waldo%20f60dd196187241c99aa9bdee885cea54.md). Run it yourself, and use it as a starting point to to create your own projects!
+You can find the source code and build instructions for this example (and many others) in the [risc0/examples folder on GitHub](https://github.com/risc0/risc0/tree/main/examples). Run it yourself, and use it as a starting point to to create your own projects! 
+If you run into issues, file a [GitHub issue](https://github.com/risc0/risc0/issues) or ask for help on [Discord](www.discord.gg/risczero). 
