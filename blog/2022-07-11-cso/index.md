@@ -26,7 +26,7 @@ If you are interested in joining us, check out our careers page here:
 
 * https://jobs.lever.co/risczero.com
 
-If you want to learn more about how ZKPs work, here are some resources: 
+If you want to learn more about how zero knowledge works, here are some resources: 
 
 * https://www.youtube.com/watch?v=fOGdb1CTu5c&t=683s
 * https://blog.chain.link/what-is-a-zero-knowledge-proof-zkp/
