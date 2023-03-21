@@ -101,4 +101,4 @@ And if you ever try to import a library and it doesn't work for some reason, it 
 ## Run this example
 
 You can find the source code and build instructions for this example (and many others) in the [risc0/examples folder on GitHub](https://github.com/risc0/risc0/tree/main/examples). Run it yourself, and use it as a starting point to to create your own projects! 
-If you run into issues, file a [GitHub issue](https://github.com/risc0/risc0/issues) or ask for help on [Discord](www.discord.gg/risczero). 
+If you run into issues, file a [GitHub issue](https://github.com/risc0/risc0/issues) or ask for help on [Discord](https://discord.gg/risczero). 
