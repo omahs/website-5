@@ -5,7 +5,7 @@ title: Understanding Hello Multiply
 
 The [Hello Multiply tutorial](hello_multiply.md) tells you how to write code that proves you know the factors of a number -- but what is this code doing? What mechanisms does the RISC Zero zkVM use to prove the execution of the source code you provide it?
 
-The complete answer to those questions requires detailed and precise cryptographic arguments. Nevertheless, here we present a short summary of what the zkVM is doing in Hello Multiply, as an overview of the general approach of the RISC Zero zkVM. We hope that this overview helps orient you to the components of the RISC Zero zkVM, and give a sense of why it might be plausible that code executed in the zkVM could be proven to parties who don't trust the prover.
+The complete answer to those questions requires detailed and precise cryptographic arguments. Nevertheless, here we present a short summary of what the zkVM is doing in Hello Multiply, as an overview of the general approach of the RISC Zero zkVM. We hope that this overview helps orient you to the components of the RISC Zero zkVM, and gives a sense of why it might be plausible that code executed in the zkVM could be proven to parties who don't trust the prover.
 
 By reading this post, you should learn, at a high level:
 * How RISC Zero can be used to convince someone that code has executed on the zkVM

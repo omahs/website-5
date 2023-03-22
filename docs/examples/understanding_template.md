@@ -159,7 +159,7 @@ This creates a prover, which can be run to execute its associated guest code and
 ```
     let receipt = prover.run().unwrap();
 ```
-This line actually runs the guest code inside the prover, the result of which is a receipt proving the execution. From here we can transfer the receipt to anyone we wish to verify our code -- in the template, we do so in the same process for simpilicity.
+This line actually runs the guest code inside the prover, the result of which is a receipt proving the execution. From here we can transfer the receipt to anyone we wish to verify our code -- in the template, we do so in the same process for simplicity.
 ```
     receipt.verify(METHOD_NAME_ID).unwrap();
 ```

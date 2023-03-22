@@ -24,7 +24,7 @@ In some ways, Alice's process follows convention. Alice generates a `password` t
 
 # What Information Can A Zero-Knowledge Proof Provide?
 
-The `image ID` and the the `journal` on the receipt provide Bob assurance that:
+The `image ID` and the `journal` on the receipt provide Bob assurance that:
 
     The program Alice executed within the zkVM was actually Bob's Password Checker, and
     Bob's Password Checker approved Alice's password
@@ -56,7 +56,7 @@ When the host driver runs a guest program on the RISC Zero zkVM, its operations 
 
 Taken on their own, these constraints on computational integrity don't tell Bob <i>which</i> program instructions have been executed. If we stopped here, Alice might run a modified program that checked her password but substituted an alternate, attacker-chosen password prior to hash generation.
 
-Bob's receipt validation process also confirms that the correct program was executed. Bob validates the receipt using a `image ID` associated with the program he expects Alice to run. If Bob's `receipt` is validated, then Alice's program execution matches Bob's password-checking program.
+Bob's receipt validation process also confirms that the correct program was executed. Bob validates the receipt using an `image ID` associated with the program he expects Alice to run. If Bob's `receipt` is validated, then Alice's program execution matches Bob's password-checking program.
 
 ### Shared Results: the Journal and the Seal
 
