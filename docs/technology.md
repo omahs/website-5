@@ -17,9 +17,10 @@ For more information about our technology, check out the following resources:
 
 ## Proof System
 
-- [**RISC Zero Proof System Spec (draft)**](https://www.risczero.com/proof-system-in-detail.pdf) - A technical specification for the RISC Zero proof system.
+- [**ZKP Whitepaper (draft)**](https://www.risczero.com/proof-system-in-detail.pdf) - A technical specification for the RISC Zero proof system. 
+To suggest corrections, feel free to make a PR on the [tex file](https://github.com/risc0/website/blob/main/static/proof-system-in-detail.tex). 
 
-- [**Proof System Explainers**](explainers/proof-system/proof-system.md) - These materials introduce the zero-knowledge proof system that makes it possible to build `trustless, verifiable software`. 
+- [**Proof System Overview**](explainers/proof-system/proof-system.md) - A gentler introduction to the RISC Zero proof system. 
 
 ## Background and Reference Materials
 
