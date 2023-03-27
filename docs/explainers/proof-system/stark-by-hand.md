@@ -357,7 +357,7 @@ f_1(x^2) = f_{0,even}(x^2) + r_1 \cdot f_{0,odd}(x^2)
 $$
 implies that 
 $$
-f_{1}(x^2) = \frac{r_1+x}{2x}f_{0}(x) + \frac{r_i-x}{2(-x)}f_{0}(x).
+f_{1}(x^2) = \frac{r_1+x}{2x}f_{0}(x) + \frac{r_1-x}{2(-x)}f_{0}(x).
 $$
 
 We wil use the following facts:
