@@ -20,7 +20,7 @@ Given a receipt and an [ImageID](https://docs.rs/risc0-zkvm/latest/risc0_zkvm/st
 - [ZKP Whitepaper](https://www.risczero.com/proof-system-in-detail.pdf)
 - [Prover-Verifier Sequence Diagram](proof-system-sequence-diagram.md)
 - STARK by hand
-  - [Website version](constructing-a-seal.md)
+  - [Website version](stark-by-hand.md)
   - [Google Sheet version](https://docs.google.com/spreadsheets/d/1Onr41OozD62y-B0jIL7bHAH5kf771-o4xvmnHUFpOyo/edit?usp=sharing) 
   - [Printable Version](assets/fibonacci-stark.pdf)
  

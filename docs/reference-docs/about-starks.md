@@ -12,7 +12,7 @@ In the context of the RISC Zero zkVM, the term **seal** refers to the zk-STARK t
 The following documentation describes the RISC Zero zk-STARK in more detail: 
 - [Proof system sequence diagram](../explainers/proof-system/proof-system-sequence-diagram.md) <br/> This document includes a sequence diagram and step-by-step specification of the RISC Zero zk-STARK.
   
-- [Constructing a seal](../explainers/proof-system/constructing-a-seal.md) <br/> This document shows a simplified, concrete example of the construction of a RISC Zero seal. 
+- [STARK by Hand](../explainers/proof-system/stark-by-hand.md) <br/> This document shows a simplified, concrete example of the construction of a RISC Zero seal. 
 
 ## References
 We recommend the following external references on STARKs:

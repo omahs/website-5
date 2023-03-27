@@ -11,4 +11,4 @@ A line-by-line analysis of the trace allows for a computational audit with respe
 
 `RISC Zero's computational receipts use cutting-edge technology to audit an execution trace while preserving computational privacy.`
 
-*For more technical description of the process of creating a computational receipt, see the [proof system sequence diagram](proof-system-sequence-diagram.md), the [seal construction explainer](constructing-a-seal.md) and the [STARKs reference page](../../reference-docs/about-starks.md).* 
+*The core of a RISC Zero receipt is a [zk-STARK](../../reference-docs/about-starks.md); for a more technical description of how we turn an execution trace into a zk-STARK, see the [proof system sequence diagram](proof-system-sequence-diagram.md) and our [STARK by Hand](stark-by-hand.md) explainer.*

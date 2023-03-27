@@ -2,18 +2,19 @@
 sidebar_position: 3
 ---
 
-# Constructing a Seal
+# STARK by Hand
 
-> The [seal](https://docs.rs/risc0-zkvm/latest/risc0_zkvm/receipt/struct.Receipt.html#structfield.seal) is the part of the [receipt](https://docs.rs/risc0-zkvm/latest/risc0_zkvm/receipt/struct.Receipt.html) that allows third-parties to authenticate the validity of the [journal](https://docs.rs/risc0-zkvm/latest/risc0_zkvm/receipt/struct.Receipt.html#structfield.journal). 
-> It's the zero-knowledge proof that sits at the crux of our technology, showing that the journal was faithfully constructed (according to the program defined by the [Image ID](../zkvm/zkvm_overview.md)). 
+> When the RISC Zero [zkVM](../zkvm/zkvm_overview.md) executes, it generates a [receipt](https://docs.rs/risc0-zkvm/latest/risc0_zkvm/receipt/struct.Receipt.html) that allows third-parties to authenticate the validity of the execution. 
+> The receipt contains a [zk-STARK](../../reference-docs/about-starks.md) in the form of the [seal](https://docs.rs/risc0-zkvm/latest/risc0_zkvm/receipt/struct.Receipt.html#structfield.seal). 
+> The zk-STARK that lives on the receipt is the crux of RISC Zero's technology. 
 
-The construction of a seal is highly technical, relying on several recent advances in the world of zero-knowledge cryptography. 
-Specifically, constructing a RISC Zero seal uses the DEEP-ALI protocol & the batched FRI protocol (after a randomized preprocessing step).
+The construction of the RISC Zero STARK is highly technical, relying on several recent advances in the world of zero-knowledge cryptography. 
+Specifically, constructing RISC Zero's zk-STARK uses the DEEP-ALI protocol & the batched FRI protocol (after a randomized preprocessing step).
 
-In this series of 10 brief lessons, we walk through a simplified example of RISC Zero's seal construction with as little technical jargon as possible.  
+In this series of 12 brief lessons, we walk through a simplified numerical example of the construction of RISC Zero's STARK.  
 
 You can peek behind the formulas on the [Google Sheet version](https://docs.google.com/spreadsheets/d/1Onr41OozD62y-B0jIL7bHAH5kf771-o4xvmnHUFpOyo/edit?usp=sharing) or [download a PDF](assets/fibonacci-stark.pdf). 
-If you make sense of these 10 lessons, you'll have a solid handle on the mechanics of a zk-STARK (and we'd likely love to [hire you](../../../careers)).
+If you make sense of these 12 lessons, you'll have a solid handle on the mechanics of a zk-STARK (and we'd likely love to [hire you](../../../careers)).
 
 The [proof system sequence diagram](proof-system-sequence-diagram.md) describes this process in more generality; we suggest going back and forth between this document and the sequence diagram. 
 
@@ -232,6 +233,168 @@ returns
 Writing this array as the coefficients of a polynomial, we see that the values in the FRI polynomial column *do*, in fact, correspond to the following low-degree polynomial: 
 
 $f_0(x)=19+56x+34x^2+48x^3+43x^4+37x^5+10x^6$.
+
+## Lesson 11: FRI Protocol (Commit Phase)
+
+> Given a vector commitment, the FRI protocol proves that the commitment corresponds to evaluations of a low-degree polynomial. 
+> In this example, we use FRI to prove that the "FRI Polynomial" commitment (from the previous lesson) has degree at most 7.
+> FRI consists of two phases; this lesson shows the "Commit Phase" and the next lesson shows the "Query Phase."		
+
+The "FRI blow-up factor" here is 4, since the commitment for the FRI polynomial has 32 entries and a degree 7 polynomial has 8 coefficients. 
+This blow-up factor is a consequence of the choice of "rate" for the Reed-Solomon expansion used earlier. 
+A FRI blow-up factor of 4 corresponds to an RS code of rate 1/4.						
+
+FRI consists of a commit phase and a query phase. The commit phase consists of $r$ rounds. 
+In each round, the prover "folds" the previous commitment into a smaller commitment (both in terms of commitment size and polynomial degree).			
+
+Here, we show 3 rounds using a folding factor of 2: in each round, the Prover commits to a vector whose length is half that of the previous commitment. 		
+
+The folding at each round is accomplished by first splitting the coefficients into an even part and an odd part and then mixing the two parts together using verifier-supplied randomness. 	
+
+### Round 1 of FRI Commit Phase
+The Prover has just committed a Merkle tree with 32 leaves for 
+$f_0(x) = 19 + 56x + 34x^2 + 48x^3 + 43x^4 + 37x^5 + 10x^6 + 0x^7.$
+
+Sorting $f_0$ into even and odd parts yields two polynomials with half the number of coefficients, where $f_0(x)=f_{0,even}(x^2) + xf_{0,odd}(x^2)$.
+
+Concretely, $f_{0,even}(x) = 19 + 34x + 43x^2 + 10x^3$ and $f_{0,odd}(x) = 56 + 48x + 37x^2 + 0x^3$.
+
+Now, the Prover mixes these two smaller polynomials together, using verifier-provided randomness $r_1$. 
+Specifically, the commitment for Round 1 is $f_1 = f_{0,even} + r_1f_{0,odd}$.
+
+Assuming $r_1=12$, we find:
+
+$$
+f_1(x)=f_{0,even}(x) + r_1f_{0,odd}(x)
+$$
+
+$$
+= (19 + 34x + 43x^2 + 10x^3) + 12(56 + 48x + 37x^2 + 0x^3)
+$$
+
+Reducing modulo 97, we find:
+$f_1(x) = 12 + 28x + 2x^2 + 10x^3$.
+The Prover commits a 16 leaf Merkle Tree for $f_1(x)$, which completes Round 1. 
+While the leaves for the previous commitment were indexed by powers of $28$, the leaves for this commitment are indexed by powers of $28^2$. 
+
+### Round 2 of FRI Commit Phase
+We proceed as before, splitting $f_1$ into an even part and an odd part, where 
+$$
+f_1(x)=f_{1,even}(x^2) + xf_{1,odd}(x^2)
+$$
+
+We find $f_{1,even}(x) = 12+2x$ and $f_{1,odd}(x) = 28+10x$.
+
+And again, the Prover mixes these using randomness from the verifier. 
+
+Assuming $r_2=32$, we find: 
+
+$$
+f_2(x)=f_{1,even}(x) + r_2f_{1,odd}(x)
+$$
+
+$$
+= (12+2x) + 32(28+10x)
+$$
+Reducing modulo 97, we find:
+$f_2(x)=35+31x$.
+
+Once again, the Prover commits a Merkle tree for $f_2$, with half the number of leaves as in the previous round. 
+This time, the leaves are indexed by powers of $28^4$.  
+
+### Round 3 of FRI Commit Phase
+Again, we split $f_2$ into an even and odd part and then mix. 
+At this point, $f_{2,even}=31$ and $f_{2,odd}=35$. 
+Using randomness of $r_3=64$, we find:
+$$
+f_3(x)=f_{2,even}+r_2f_{2,odd}
+$$
+
+$$
+= 31 + 64\cdot35=79
+$$
+
+The Prover commits one more Merkle tree, this time with leaves indexed by powers of $28^8$. 
+
+This completes the commit phase of the FRI protocol. In 3 rounds of folding, we've reduced a polynomial with 8 coefficients into a polynomial with 1 coefficient (i.e., a constant polynomial). 
+
+## Lesson 12: FRI Protocol (Query Phase)
+> After the commmit phase is completed, the Verifier makes a number of *queries*. 
+> In this lesson, we show the mechanics of a single query.
+> 
+> The queries serve as a random challenge, testing the legitimacy of the Prover's commitments. 
+> Loosely speaking, with a blow-up factor of $4$, a single query will catch a cheating Prover $\frac{3}{4}$ of the time.
+> In other words, a single query provides $2$ bits of security. 
+> The RISC Zero zkVM uses $50$ queries and a blow-up factor of 4, which amounts to 100 bits of security. 
+>
+> Note that the paragraph above is a substantial simplification of the full security analysis; the precise security level is not exactly 100 bits. 
+> For a more thorough security analysis, see our [ZKP Whitepaper](https://www.risczero.com/proof-system-in-detail.pdf) and the [Summary on the FRI Low-Degree Test](https://eprint.iacr.org/2022/1216).
+
+The Prover has committed to $f_0$ on powers of $28$, $f_1$ on powers of $28^2$, $f_2$ on powers of $28^4$, and $f_3$ on powers of $28^8$. 
+
+### The Evaluations for a Single Query
+For a single query, the Prover provides 2 evaluations from each of $f_0, f_1,$ and $f_2$, and one evaluation from $f_3$. 
+Specifically, if the Verifier query is $g$, the Prover provides evaluations of:
+- $f_0(g)$ and $f_0(-g)$
+- $f_1(g^2)$ and $f_1(-g^2)$
+- $f_2(g^4)$ and $f_1(-g^4)$
+- $f_3(g^8)$
+  
+The Verifier checks the Merkle branches for each of these evaluations and also checks that the evaluations from one round to the next are consistent. 
+
+### Checking the Evaluations are Consistent
+The Verifier can confirm the evaluations for $f_{i-1}$ and $f_{i}$ are consistent by checking that 
+$$
+f_{i}(x^2) = \frac{r_i+x}{2x}f_{i-1}(x) + \frac{r_i-x}{2(-x)}f_{i-1}(x)
+$$
+
+To simplify the exposition, we limit our discussion to checking consistency between the evaluations for $f_0$ and $f_1$. 
+
+### The Heavy Algebra
+We will show that 
+$$
+f_1(x^2) = f_{0,even}(x^2) + r_1 \cdot f_{0,odd}(x^2)
+$$
+implies that 
+$$
+f_{1}(x^2) = \frac{r_1+x}{2x}f_{0}(x) + \frac{r_i-x}{2(-x)}f_{0}(x).
+$$
+
+We wil use the following facts:
+$$
+f_{0,even}(x^2) = \frac{f_0(x)+f_0(-x)}{2}
+$$
+
+$$
+f_{0,odd}(x^2) = \frac{f_0(x)-f_0(-x)}{2x}
+$$
+
+
+By construction, we have 
+$$
+f_1(x^2) = f_{0,even}(x^2) + r_1 \cdot f_{0,odd}(x^2)
+$$
+Using the expressions for $f_{0,even}$ and $f_{0,odd}$, we can re-write $f_1(x^2)$ using only $f_0(x)$, $f_0(-x)$, and $r_1$: 
+$$
+f_1(x^2) = \frac{f_0(x)+f_0(-x)}{2} + r_1 \cdot \frac{f_0(x)-f_0(-x)}{2x}.
+$$
+We can now find common denominators and re-arrange terms: 
+$$
+f_1(x^2) = \frac{xf_0(x)+xf_0(-x)}{2x} + \frac{r_1 f_0(x) - r_1 f_0(-x)}{2x}
+$$
+
+$$
+= \frac{x+r}{2x}f_0(x)+\frac{x-r}{2x}f_0(-x)
+$$
+
+$$
+= \frac{x+r}{2x}f_0(x) + \frac{r-x}{2(-x)}f_0(-x)
+$$
+which completes the claim. 
+
+The key point here is that the FRI folding procedure can be checked *locally*: the Verifier can check the purported evaluation $f_i(x^2)$ using just two evaluations from the previous round: $f_{i-1}(x)$ and $f_{i-1}(-x)$. 
+
+## Thanks for Reading!
 
 Whew! Congratulations and thank you for making it this far!
 
