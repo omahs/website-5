@@ -360,7 +360,7 @@ $$
 f_{1}(x^2) = \frac{r_1+x}{2x}f_{0}(x) + \frac{r_1-x}{2(-x)}f_{0}(x).
 $$
 
-We wil use the following facts:
+We will use the following facts:
 $$
 f_{0,even}(x^2) = \frac{f_0(x)+f_0(-x)}{2}
 $$
