@@ -384,11 +384,11 @@ f_1(x^2) = \frac{xf_0(x)+xf_0(-x)}{2x} + \frac{r_1 f_0(x) - r_1 f_0(-x)}{2x}
 $$
 
 $$
-= \frac{x+r}{2x}f_0(x)+\frac{x-r}{2x}f_0(-x)
+= \frac{x+r_1}{2x}f_0(x)+\frac{x-r_1}{2x}f_0(-x)
 $$
 
 $$
-= \frac{x+r}{2x}f_0(x) + \frac{r-x}{2(-x)}f_0(-x)
+= \frac{x+r_1}{2x}f_0(x) + \frac{r_1-x}{2(-x)}f_0(-x)
 $$
 which completes the claim. 
 
