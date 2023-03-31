@@ -314,9 +314,12 @@ $$
 = 31 + 64\cdot35=79
 $$
 
-The Prover commits one more Merkle tree, this time with leaves indexed by powers of $28^8$. 
+The Prover sends evaluations of $f_3$ on powers of $28^8$ without Merklization; the Verifier can check for themselves that the evaluations for $f_3$ correspond to a constant polynomial.
 
 This completes the commit phase of the FRI protocol. In 3 rounds of folding, we've reduced a polynomial with 8 coefficients into a polynomial with 1 coefficient (i.e., a constant polynomial). 
+
+In the RISC Zero protocol, the final round of FRI occurs when the polynomial has been reduced to degree 255.
+The Prover sends a vector of 1024 evaluations, which the Verifier interpolates to confirm that the evaluations correspond to a low-degree polynomial.
 
 ## Lesson 12: FRI Protocol (Query Phase)
 > After the commmit phase is completed, the Verifier makes a number of *queries*. 
@@ -333,14 +336,14 @@ This completes the commit phase of the FRI protocol. In 3 rounds of folding, we'
 The Prover has committed to $f_0$ on powers of $28$, $f_1$ on powers of $28^2$, $f_2$ on powers of $28^4$, and $f_3$ on powers of $28^8$. 
 
 ### The Evaluations for a Single Query
-For a single query, the Prover provides 2 evaluations from each of $f_0, f_1,$ and $f_2$, and one evaluation from $f_3$. 
+For a single query, the Prover provides 2 evaluations from each of $f_0, f_1,$ and $f_2$. 
 Specifically, if the Verifier query is $g$, the Prover provides evaluations of:
 - $f_0(g)$ and $f_0(-g)$
 - $f_1(g^2)$ and $f_1(-g^2)$
-- $f_2(g^4)$ and $f_1(-g^4)$
-- $f_3(g^8)$
+- $f_2(g^4)$ and $f_2(-g^4)$
   
 The Verifier checks the Merkle branches for each of these evaluations and also checks that the evaluations from one round to the next are consistent. 
+This includes checking that the evaluations for $f_2$ are consistent with the evaluation of $f_3(g^8)$.
 
 ### Checking the Evaluations are Consistent
 The Verifier can confirm the evaluations for $f_{i-1}$ and $f_{i}$ are consistent by checking that 
