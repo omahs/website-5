@@ -13,7 +13,7 @@ Specifically, constructing RISC Zero's zk-STARK uses the DEEP-ALI protocol & the
 
 In this series of 12 brief lessons, we walk through a simplified numerical example of the construction of RISC Zero's STARK.  
 
-You can peek behind the formulas on the [Google Sheet version](https://docs.google.com/spreadsheets/d/1Onr41OozD62y-B0jIL7bHAH5kf771-o4xvmnHUFpOyo/edit?usp=sharing) or [download a PDF](assets/fibonacci-stark.pdf). 
+You can peek behind the formulas on the [Google Sheet version](https://docs.google.com/spreadsheets/d/1Onr41OozD62y-B0jIL7bHAH5kf771-o4xvmnHUFpOyo/edit?usp=sharing) or [download a PDF](https://www.risczero.com/STARK-by-hand.pdf). 
 If you make sense of these 12 lessons, you'll have a solid handle on the mechanics of a zk-STARK (and we'd likely love to [hire you](../../../careers)).
 
 The [proof system sequence diagram](proof-system-sequence-diagram.md) describes this process in more generality; we suggest going back and forth between this document and the sequence diagram. 
