@@ -22,7 +22,8 @@ sorting=ynt
 \usepackage[a4paper, total={5in, 8in}]{geometry}
 \usepackage{draftwatermark}
 \SetWatermarkText{DRAFT}
-\SetWatermarkScale{6}
+\SetWatermarkScale{5}
+\SetWatermarkColor[gray]{0.9}
 
 \author{Jeremy Bruestle, Paul Gafni, and the RISC Zero Team}
 \title{RISC Zero zkVM: Scalable, Transparent Arguments of RISC-V Integrity}
@@ -71,7 +72,7 @@ In a world where trust is becoming more and more scarce, verifiable computing pr
 \\
 Thousands upon thousands of developers are eager to start writing verifiable software.
 But current systems for writing verifiable software require developers to learn brand new languages with various limitations and challenges. 
-In order to make the world of verifiable software development available in languages like Rust and C++, \textbf{RISC Zero has built a mechanism for demonstrating the integrity of any RISC-V computation.} 
+In order to make verifiable software development possible in languages like Rust and C++, \textbf{RISC Zero has built a mechanism for demonstrating the integrity of any RISC-V computation.} 
 
 \subsection{Verifiable RISC-V}
 When a \href{https://riscv.org/} {RISC-V} binary executes in the RISC Zero zkVM, the output is paired with a computational receipt.
@@ -111,7 +112,7 @@ It's typical to write an execution trace as a rectangular array, where each row 
 \\
 The columns of the RISC Zero execution trace are categorized as follows:
 \begin{description}
-  \item[Control Columns - Public] The data in these columns describe the RISC-V architecture, and various control signals that define the stage of execution and therefore what constraints are applied.
+  \item[Control Columns - Public] The data in these columns describe the RISC-V architecture, and various control signals that define the stage of execution and therefore what constraints are applied.%
   \footnote{In the source code, the Control Columns are referred to as ``Code" Columns; we intend to update the terminology to align with this document.} 
   \item[Data Columns - Private] The data in these columns represents the running state of the processor and memory. 
   In order to efficiently check the integrity of RISC-V memory operations, each register associated with RISC-V memory operations has two associated columns: one in the original execution order and the second sorted first by memory location and then by clock-cycle. 
@@ -123,7 +124,7 @@ The columns of the RISC Zero execution trace are categorized as follows:
 \subsection{Enforcing Computational Integrity via Constraints}
 An assertion of computational integrity can be re-framed as an assertion that an execution trace satisfies a certain set of \textit{constraints}.
 These constraints enforce that the zkVM execution is consistent with the RISC-V ISA.
-Each constraint is a low-degree polynomial relation over the constrained values.
+Each constraint is a low-degree polynomial relation over the constrained values; the execution trace is valid if and only if each constraint evaluates to 0.
 
 \textbf{Example 1.} The constraint $(k)(k-1)=0$ enforces that $k$ is either 0 or 1. 
 
@@ -153,10 +154,10 @@ In the case of an assertion of computational integrity, the witness is the execu
 \\
 In Section \ref{IOP spec}, we present the protocol as an Interactive Oracle Proof (IOP) \cite{iop}.  
 IOPs involve a series of interactions between a Prover and a Verifier, where the Prover's messages depend on randomness supplied by the Verifier at various points throughout the protocol. 
-The IOP protocol is a theoretical model; in practice, the zkVM uses a non-interactive version of this protocol where the Verifier participation is replaced by HMAC-SHA-256 through the Fiat-Shamir transform.
+The IOP protocol is a theoretical model; in practice, the zkVM uses a non-interactive version of this protocol where the Verifier participation is replaced by HMAC-SHA-256 through the Fiat-Shamir transform.\\
 \\
-In the context of the IOP protocol, the seal constitutes a proof of knowledge. In code, the \textit{proof} becomes an \textit{argument}%
-\footnote{The argument depends on the security of HMAC-SHA-256 as a random oracle whereas the proof has no cryptographic assumptions.}.
+In the context of the IOP protocol, the seal constitutes a proof of knowledge. In code, the \textit{proof} becomes an \textit{argument}.%
+\footnote{The argument depends on the security of HMAC-SHA-256 as a random oracle whereas the proof has no cryptographic assumptions.}
 More specifically, the seal is a STARK. 
 The Fiat-Shamir Heuristic allows us to derive security results for our STARK based on soundness analysis of the IOP protocol \cite{fiat-shamir}.
 
@@ -198,8 +199,8 @@ See Appendix \ref{merkle} and \cite{merklecap} for more details.}
 The main phase consists of a standard AIR-FRI protocol, using DEEP-ALI\cite{deepFRI} and the batched FRI protocol\cite{proxGaps}, as in \cite{ethSTARK} and \cite{plonky2}.\\
 \\
 The Prover uses the constraints and the execution trace to generate the validity polynomial $f_\mathsf{validity}$, 
-uses $f_\mathsf{validity}$ to construct the validity witness $\mathbf{w}_\mathsf{validity}$,
-and sends $\mathsf{Com}(\mathbf{w}_\mathsf{validity})$ to the Verifier.  
+uses $f_\mathsf{validity}$ to construct the validity witness $\mathbb{w}_\mathsf{validity}$,
+and sends $\mathsf{Com}(\mathbb{w}_\mathsf{validity})$ to the Verifier.  
 The Verifier responds with a random $z\in\GF{q}$, 
 the Prover evaluates $f_\mathsf{validity}$ at $z$ and uses the DEEP quotienting technique to construct the $\mathsf{DEEPAnswerSequence}.$
 
@@ -228,7 +229,7 @@ Building on the definitions and notation of an AIR from Section 5 of \cite{ethST
   \mathsf{C}_\mathsf{set})\] where 
 \begin{itemize}
   \item $\mathbb{F}=\mathbb{F}_{2^{31} - 2^{27} + 1}$, known commonly as the Baby Bear field. 
-  \item $\mathbb{K}$ is an extension of $\mathbb{F}$ of size $q^\mathsf{e}$, where $\mathsf{e}=4$.
+  \item $\mathbb{K}$ is a degree $\mathsf{e}=4$ extension of $\mathbb{F}$.
   \item $\mathsf{w}_\mathsf{RAP}$ is the number of columns in the RAP witness. 
   We write 
   $\mathsf{w}_\mathsf{RAP} = \mathsf{w}_\mathsf{control} + \mathsf{w}_\mathsf{data} + \mathsf{w}_\mathsf{accum}$ 
@@ -247,7 +248,7 @@ Building on the definitions and notation of an AIR from Section 5 of \cite{ethST
   \item $2^\mathsf{h}$ is the size of the trace domain, $\mathsf{H}$ (i.e., the length of the columns).
   \item $\mathsf{d}$ is the maximum degree of the rule-checking polynomials.
   \item $\w\in\mathbb{F}$ has multiplicative order $\mathsf{e}\cdot2^\mathsf{h}$ and $\beta\in\mathbb{F}$ is non-zero. 
-  We define the commitment domain $\mathsf{D}$ as the co-set $\beta \mathsf{D}_0$ where $\mathsf{D}_0\subseteq\GF{p}$ is generated by $\w$, 
+  We define the commitment domain $\mathsf{D}$ as the coset $\beta \mathsf{D}_0$ where $\mathsf{D}_0\subseteq\GF{p}$ is generated by $\w$, 
   and we define the trace domain $\mathsf{H}$ as the set generated by $\w^\frac{1}{\mathsf{\rho}}$, where $\rho$ is defined below. 
   \item $\mathsf{l}$ is the set of indices for the tapset%
   \footnote{A tap is a reference to an entry in the trace; the constraints are expressed as a function of various taps. For more details on taps, see Appendix \ref{taps}. Note that ethSTARK uses the term \textit{mask} where we use \textit{tapset}.}. 
@@ -260,7 +261,7 @@ In addition to the inputs to the RAP instance listed above, the IOP also uses th
 \begin{itemize}
   \item $\mathsf{D}$ is the zk commitment domain%
   \footnote{ethSTARK calls this the evaluation domain.}, which is a non-trivial coset%
-  \footnote{Using $\mathsf{D}_0$ as a commitment domain introduces divide-by-zero issues and would mean queries might reveal information about the execution trace. 
+  \footnote{Using $\mathsf{D}_0$ as a commitment domain would introduce divide-by-zero issues and would mean queries might reveal information about the execution trace. 
   The coset $\mathsf{D}$ doesn't intersect $\mathsf{D}_0$, which is important for zero-knowledge purposes.}
   of a multiplicative subgroup $\mathsf{D}_0$ where $\mathsf{H}\subseteq\mathsf{D}_0\subseteq\mathbb{F}$.
   % Why does ethSTARK use $\mathsf{k}'$ here?
@@ -305,19 +306,19 @@ After a transparent set-up, the IOP consists of three components: a randomized p
   \subsubsection{Sub-Protocol: DEEP-ALI}
   \item \textbf{Verifier} samples $\alpha_\mathsf{constraints}\in\mathbb{K}$, the randomness used in DEEP-ALI constraint batching.%
   \footnote{ethSTARK samples 2 random parameters per constraint, whereas we use a single randomness parameter here. See affine batching vs. parametric batching in \cite{FRIsummary}.}
-  \item \textbf{Prover} generates $\mathbf{w}_\mathsf{validity}$ and sends $\mathsf{Com}(\mathbf{w}_\mathsf{validity})$. \\
+  \item \textbf{Prover} generates $\mathbb{w}_\mathsf{validity}$ and sends $\mathsf{Com}(\mathbb{w}_\mathsf{validity})$. \\
   This serves as a commitment to $f_\mathsf{validity}$, defined as follows:
   \[
     f_\mathsf{validity}(x)=
     \frac{
       \mathlarger{
         \mathlarger{\sum}}_{i=0}^{
-          \mathsf{w}_\mathsf{RAP}-1
+          \mathsf{|\mathsf{C_{set}|}}-1
           }
-          \alpha_\mathsf{constraints}^i\cdot P_i(x)}
+          \alpha_\mathsf{constraints}^i\cdot \mathsf{C}_i(P_0(x),\ldots,P_{\mathsf{w_{RAP}}-1})}
       {Z(x)}
   \] 
-  where $P_i$ are the interpolations of the columns of $\mathbf{w}_\mathsf{RAP}$ and $Z$ is the minimal polynomial that vanishes on the trace domain $\mathsf{H}$.%
+  where $P_j$ are the interpolations of the columns of $\mathbb{w}_\mathsf{RAP}$, $\mathsf{C_i}$ are the constraints, and $Z$ is the minimal polynomial that vanishes on the trace domain $\mathsf{H}$.%
   \footnote{
     In the source code, $f_\mathsf{validity}$ is called the CheckPoly. The Prover \hyperref[split]{splits} $f_\mathsf{validity}$ into four low-degree validity polynomials in order to construct $\mathsf{Com}(\mathbb{w}_\mathsf{validity})$. 
     For details on this step, see Section \ref{committing validity polynomials}.
@@ -327,7 +328,7 @@ After a transparent set-up, the IOP consists of three components: a randomized p
   Rather than a Merkle commitment for $\mathbb{w}_\mathsf{BatchedFRI}$, the Prover sends enough information for the Verifier to reproduce the asserted values of $\mathbb{w}_\mathsf{BatchedFRI}$. 
   This information is called the $\mathsf{DEEPAnswerSequence}$, and it consists of: 
   \begin{enumerate}
-    \item the full tapset of $\mathbf{w}_\mathsf{RAP}$ at the DEEP query point $z$, 
+    \item the full tapset of $\mathbb{w}_\mathsf{RAP}$ at the DEEP query point $z$, 
     \item the evaluation of $\mathbb{w}_\mathsf{validity}$ at the DEEP query point $z$, and 
     \item the coefficients of column-by-column interpolations of the tapset.%
     \footnote{
@@ -390,10 +391,12 @@ We bound the soundness of our protocol by
   \epsilon_\mathsf{FRI}
 \]
 where 
-$\epsilon_\mathsf{PLOOKUP}$, $\epsilon_\mathsf{DEEP-ALI}$, and $\epsilon_\mathsf{FRI}$ 
+$\epsilon_\mathsf{PLONK}$, $\epsilon_\mathsf{PLOOKUP}$, $\epsilon_\mathsf{DEEP-ALI}$, and $\epsilon_\mathsf{FRI}$ 
 are the soundness error bounds for our PLOOKUP argument, our DEEP-ALI implementation, and our FRI implementation, respectively. 
-In the following subsections, we bound $\epsilon_\mathsf{PLONK}$, $\epsilon_\mathsf{PLOOKUP}$, $\epsilon_\mathsf{DEEP-ALI}$, and $\epsilon_\mathsf{FRI}$, respectively. \\
-\\Using $\theta$ as the proximity parameter for the FRI low-degree test, the analysis in this section is proven to hold within the list-decoding radius ($\theta < 1-\sqrt{\rho}$) 
+In the following subsections, we bound $\epsilon_\mathsf{PLONK}$, $\epsilon_\mathsf{PLOOKUP}$, $\epsilon_\mathsf{DEEP-ALI}$, and $\epsilon_\mathsf{FRI}$, respectively. 
+
+\subsubsection{Notation for Soundness Analysis}
+Using $\theta$ as the proximity parameter for the FRI low-degree test, the analysis in this section is proven to hold within the list-decoding radius ($\theta < 1-\sqrt{\rho}$) 
 and conjectured to hold up to code capacity ($\theta < 1 - \rho$). 
 The proofs for these soundness results follow from Theorems 1.5 and 8.3 of \cite{proxGaps} and Theorem 6.2 of \cite{deepFRI}. 
 The conjectured security follows from Conjecture 8.4 in \cite{proxGaps} and Conjecture 2.3 of \cite{deepFRI}. 

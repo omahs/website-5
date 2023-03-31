@@ -2,3 +2,16 @@
 node_modules/
 yarn.lock
 .DS_Store
+
+# tex build artifacts
+.aux
+.bbl
+.bcf
+.blg
+.fdb_latexmk
+.fls
+.log
+.out
+.xml
+.gz
+.toc
