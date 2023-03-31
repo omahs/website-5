@@ -348,7 +348,7 @@ This includes checking that the evaluations for $f_2$ are consistent with the ev
 ### Checking the Evaluations are Consistent
 The Verifier can confirm the evaluations for $f_{i-1}$ and $f_{i}$ are consistent by checking that 
 $$
-f_{i}(x^2) = \frac{r_i+x}{2x}f_{i-1}(x) + \frac{r_i-x}{2(-x)}f_{i-1}(x)
+f_{i}(x^2) = \frac{r_i+x}{2x}f_{i-1}(x) + \frac{r_i-x}{2(-x)}f_{i-1}(-x)
 $$
 
 To simplify the exposition, we limit our discussion to checking consistency between the evaluations for $f_0$ and $f_1$. 
@@ -360,7 +360,7 @@ f_1(x^2) = f_{0,even}(x^2) + r_1 \cdot f_{0,odd}(x^2)
 $$
 implies that 
 $$
-f_{1}(x^2) = \frac{r_1+x}{2x}f_{0}(x) + \frac{r_1-x}{2(-x)}f_{0}(x).
+f_{1}(x^2) = \frac{r_1+x}{2x}f_{0}(x) + \frac{r_1-x}{2(-x)}f_{0}(-x).
 $$
 
 We will use the following facts:
