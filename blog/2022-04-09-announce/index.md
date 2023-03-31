@@ -14,7 +14,7 @@ RISC Zero is the first fully **free-and-open-source general-purpose ZK computing
 platform**. Our **prover and verifier** are [available under the Apache2
 license](https://github.com/risc0/risc0), along with several simple but powerful
 examples of this technology 
-[written in Rust](https://github.com/risc0/risc0-rust-examples) and 
+[written in Rust](https://github.com/risc0/risc0/tree/main/examples) and
 C++.
 
 # General Purpose Verifiable Computing

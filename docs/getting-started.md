@@ -21,7 +21,7 @@ You'll understand which parts are necessary and which can be changed, and get a 
 
 ## Project Examples
 
-For more ideas about what's possible with RISC Zero, take a look at [our Rust examples repository](https://github.com/risc0/risc0-rust-examples).
+For more ideas about what's possible with RISC Zero, take a look at [examples](https://github.com/risc0/risc0/tree/main/examples).
 We also provide detailed explanations for the factors example (in [Hello, Multiply](examples/hello_multiply.md) above) and for the password-checker example:
 
 * [**RISC Zero Password Validity Checker**](examples/password_checker.md) -
@@ -49,8 +49,8 @@ The full list of our crates, including links to their documentation, is availabl
 
 Our source code is available on GitHub.
 Our main repository is [risc0](https://github.com/risc0/risc0).
-We provide [a Rust starter template repository](https://github.com/risc0/risc0-rust-starter) to help people start their own projects using the RISC Zero zkVM,
-and have a variety of examples in our [Rust examples repository](https://github.com/risc0/risc0-rust-examples).
+We have created the [`cargo risczero` tool](https://crates.io/crates/cargo-risczero) to help people start their own projects using the RISC Zero zkVM,
+and have a variety of [Rust examples](https://github.com/risc0/risc0/tree/main/examples).
 
 We also have packaged Rust crates available, listed [here](https://github.com/risc0/risc0#rust-libraries).
 

@@ -23,7 +23,7 @@ In the Hello Multiply program, we demonstrate how to multiply two numbers and sh
 
 # Differentiating host and guest code
 
-The host driver program runs the guest zkVM. Most code written for the guest zkVM lives in [`methods/guest/src/bin/multiply.rs`](https://github.com/risc0/risc0-rust-examples/blob/main/factors/methods/guest/src/bin/multiply.rs). The main function for our host program code  lives in [`factors/src/main.rs`](https://github.com/risc0/risc0-rust-examples/blob/main/factors/factors/src/main.rs).
+The host driver program runs the guest zkVM. Most code written for the guest zkVM lives in [`methods/guest/src/main.rs`](https://github.com/risc0/risc0/blob/main/examples/factors/methods/guest/src/main.rs). The main function for our host program code  lives in [`factors/src/main.rs`](https://github.com/risc0/risc0/blob/main/examples/factors/src/main.rs).
 
 When the host code executes, it creates a prover instance that is responsible for all guest zkVM interactions:
 

@@ -30,7 +30,7 @@ module.exports = {
         {
           type: 'link',
           label: '"Hello, Multiply!" Source',
-          href: 'https://github.com/risc0/risc0-rust-examples/tree/main/factors',
+          href: 'https://github.com/risc0/risc0/tree/main/examples/factors',
         },
       ]
     },
@@ -44,8 +44,8 @@ module.exports = {
         },
         {
           type: 'link',
-          label: 'Starter Template Source',
-          href: 'https://github.com/risc0/risc0-rust-starter',
+          label: 'Starter Template via `cargo risczero new`',
+          href: 'https://crates.io/crates/cargo-risczero',
         }
       ]
     },
@@ -60,7 +60,7 @@ module.exports = {
       {
         type: 'link',
         label: 'Password Validity Checker Source',
-        href: 'https://github.com/risc0/risc0-rust-examples/tree/main/password-checker',
+        href: 'https://github.com/risc0/risc0/tree/main/examples/password-checker',
       }
     ]
   },

@@ -1,12 +1,12 @@
 # Contributor's Guide
-*This page describes guidelines for community contributions to this [website](https://www.github.com/risc0/website); you may also be interested in contributing to the [main project codebase](https://github.com/risc0/risc0) or to the [examples repository](https://github.com/risc0/risc0-rust-examples).* 
+*This page describes guidelines for community contributions to this [website](https://www.github.com/risc0/website); you may also be interested in contributing to the [main project codebase](https://github.com/risc0/risc0).*
 
 >`RISC Zero welcomes community participation!`
 >- Make suggestions or report bugs via  [GitHub issues](https://github.com/risc0/website/issues)
 >- Contribute website content or give feedback on [open pull requests](https://github.com/risc0/website/pulls)
 >- Contribute to the [main zkVM project](https://github.com/risc0/risc0)
->- Contribute to our tutorials and how-to guides at the [Rust starter repository](https://github.com/risc0/risc0-rust-starter/) and [Rust examples repository](https://github.com/risc0/risc0-rust-examples/)
->- Ask questions on  [Discord](https://discord.gg/risczero)
+>- Contribute to our tutorials and how-to guides for our [templates](https://github.com/risc0/risc0/tree/main/templates) and [Rust examples](https://github.com/risc0/risc0/tree/main/examples)
+>- Ask questions on [Discord](https://discord.gg/risczero)
 
 ## How To Contribute
 - All changes to this website are managed through GitHub pull requests, so you'll need a [GitHub Account](https://github.com/) to contribute. 
@@ -43,11 +43,6 @@ Please let us know via a [`GitHub issue`](https://github.com/risc0/website/issue
 - The sidebars are defined in `sidebars.js`. Any changes outside of `docs/reference-docs`, `docs/explainers/zkp`, or `docs/explainers/zkvm` require manual configuration. 
   - [How to edit the sidebar](https://docusaurus.io/docs/sidebar)
   - The default configuration (and our current configuration) is that `pages` do not have sidebars and `docs` do.
-
-## Categories of Documentation
-We organize our docs into 4 categories, as per [the Divio documentation guidelines](https://documentation.divio.com). 
-- Reference docs and explainers live on this site under `docs/reference-docs` and `docs/explainers`. 
-- Tutorials & how-to guides live on Github in the [`risc0/rust-starter`](https://github.com/risc0/risc0-rust-starter) repository. 
 
 ### Reference Docs
 We typically organize reference docs according to the following sections; we use `About NTTs` as a template. 

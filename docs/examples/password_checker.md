@@ -4,7 +4,7 @@ slug: password-checker
 
 # Checking Password Validity With the RISC Zero zkVM
 
-In this example, we'll discuss the security value of running a program as part of a RISC Zero zkVM project. We recommend pairing this document with the [password validity checker](https://github.com/risc0/risc0-rust-examples/tree/main/password-checker) example in our Rust examples repository. We assume a high-level understanding of RISC Zero zkVM project design; if you'd like an example that describes a zkVM project in greater operational detail, we recommend the [Hello, Multiply! project explanation](../examples/understanding-hello-multiply.md).
+In this example, we'll discuss the security value of running a program as part of a RISC Zero zkVM project. We recommend pairing this document with the [password validity checker](https://github.com/risc0/risc0/tree/main/examples/password-checker) example in our Rust examples repository. We assume a high-level understanding of RISC Zero zkVM project design; if you'd like an example that describes a zkVM project in greater operational detail, we recommend the [Hello, Multiply! project explanation](../examples/understanding-hello-multiply.md).
 
 We'll take the perspective of Bob's Identity Service, which needs to set up authentication credentials for Alice. By the time you're finished reading this explanation, you should be able to broadly identify how Alice and Bob are relying on the RISC Zero zkVM.
 
@@ -14,7 +14,7 @@ For those looking to implement their own password solutions: we do not present a
 
 # Overview
 
-In some ways, Alice's process follows convention. Alice generates a `password` that meets Bob's requirements, and Bob receives a `SHA-256 hash of Alice's password` along with a `salt`. Like all RISC Zero projects for the zkVM, the bulk of the password checker program is divided between a [host driver](https://github.com/risc0/risc0-rust-examples/tree/main/password-checker/cli/src/main.rs) that runs the zkVM code and a [guest program](https://github.com/risc0/risc0-rust-examples/tree/main/password-checker/methods/guest/src/bin/pw_checker.rs) that executes on the zkVM. By taking advantage of the RISC Zero zkVM, Alice can run a password validity check and her password never needs to leave her local machine. Alice's process is as follows:
+In some ways, Alice's process follows convention. Alice generates a `password` that meets Bob's requirements, and Bob receives a `SHA-256 hash of Alice's password` along with a `salt`. Like all RISC Zero projects for the zkVM, the bulk of the password checker program is divided between a [host driver](https://github.com/risc0/risc0/blob/main/examples/password-checker/src/main.rs) that runs the zkVM code and a [guest program](https://github.com/risc0/risc0/blob/main/examples/password-checker/methods/guest/src/main.rs) that executes on the zkVM. By taking advantage of the RISC Zero zkVM, Alice can run a password validity check and her password never needs to leave her local machine. Alice's process is as follows:
 
 * Alice's `host driver program` shares a password and salt with the `guest zkVM` and initiates guest program execution.
 * The `guest zkVM program` checks Alice's password against a set of validity requirements.

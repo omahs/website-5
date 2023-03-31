@@ -2,7 +2,9 @@
 title: "Understanding the RISC Zero zkVM Starter Template"
 ---
 
-The [RISC Zero Rust starter template](https://github.com/risc0/risc0-rust-starter) provides a starting point for RISC Zero zkVM projects. This article will describe what the template code does, and why we've written it this way. In particular, it should help you understand:
+_We've created a [`cargo risczero`](https://crates.io/crates/cargo-risczero) tool for creating, managing, and testing RISC Zero projects. This tool makes the Rust starter template repository obsolete, as a starter project can now be generated via `cargo risczero new`. See the [`cargo risczero` documentation](https://docs.rs/cargo-risczero/latest/cargo_risczero/) for details on how to do this. While we intend to update this page soon, in the meantime its information on the structure and purpose of the Rust starter template remains relevant to the `cargo risczero new` version of the template._
+
+The RISC Zero Rust starter template provides a starting point for RISC Zero zkVM projects. This article will describe what the template code does, and why we've written it this way. In particular, it should help you understand:
 * The host, guest, and build components of RISC Zero zkVM programs
 * How guest methods are built and made available to the host
 * How the host calls guest methods
@@ -27,7 +29,7 @@ The code for each of these components uses its own associated RISC Zero crate or
 * The _build_ code for building guest methods uses the [`risc0-build` crate](https://docs.rs/risc0-build/latest)
 * The _host_ code uses the [`risc0-zkvm` crate](https://docs.rs/risc0-zkvm/latest)
 
-It is possible to organize the files for these components in various ways. However, in code published by RISC Zero we use a standard directory structure for zkVM code, and we recommend you use this structure as well. See below for a diagram of this directory structure with annotations. You can also see this structure in the [Rust starter template repository](https://github.com/risc0/risc0-rust-starter).
+It is possible to organize the files for these components in various ways. However, in code published by RISC Zero we use a standard directory structure for zkVM code, and we recommend you use this structure as well. See below for a diagram of this directory structure with annotations. You can also see this structure in the [Rust starter template](https://github.com/risc0/risc0/tree/main/templates/rust-starter) used by [`cargo risczero new`](https://crates.io/crates/cargo-risczero).
 
 ```
 project_name

@@ -2,14 +2,20 @@
 
 In this guide, we'll be writing a program that demonstrates a number is composite and *we know its factors*.
 If you'd like to start with an under-the-hood explanation of what this program will do, we've written one [here](understanding-hello-multiply.md).
-To jump ahead and see the finished product, look at the [factors example](https://github.com/risc0/risc0-rust-examples/tree/main/factors) in our examples repository.
+To jump ahead and see the finished product, look at our [factors example](https://github.com/risc0/risc0/tree/main/examples/factors).
 If you're ready to code, let's dive in!
 
-## Step 1: Clone the template repository
+## Step 1: Create a starter project
 
-To get started, clone the [Rust starter template](https://github.com/risc0/risc0-rust-starter).
+Install Rust if you don't already have it: https://www.rust-lang.org/tools/install. Then, install our `cargo risczero` tool:
+```
+cargo install cargo-risczero
+```
+You can now create a new project with
+```
+cargo risczero new
+```
 (An explanation of the template code is [also available](understanding_template.md).)
-If you intend to publish your project, you should instead follow the [directions for creating a repository from a template](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template) on GitHub.
 
 ## Step 2: Modify file names (and their references)
 

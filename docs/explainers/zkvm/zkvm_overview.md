@@ -15,10 +15,10 @@ This document describes, at a high level, the components involved in this proces
 After reading this, you should understand the general process of receipt creation and be familiar with the language we use to describe the zkVM's operations. 
 To understand how these operations generate an argument of computational integrity, see our introduction to the [proof system](../proof-system/proof-system-sequence-diagram.md).
 
-In a RISC Zero zkVM program, guest code written for the zkVM is compiled to an ELF binary and executed by the `prover`, which returns a computational receipt to the host program, as shown in the following Rust code snippet from the [RISC Zero Rust starter example](https://github.com/risc0/risc0-rust-starter/):
+In a RISC Zero zkVM program, guest code written for the zkVM is compiled to an ELF binary and executed by the `prover`, which returns a computational receipt to the host program, as shown in the following Rust code snippet from the [RISC Zero Rust starter template](https://github.com/risc0/risc0/tree/main/templates/rust-starter):
 
 ```
-    let receipt = prover.run().unwrap();
+    let receipt = prover.run().expect(...);
 ```
 
 Anyone with a copy of the receipt can verify the program's execution and read its publicly shared outputs. 
