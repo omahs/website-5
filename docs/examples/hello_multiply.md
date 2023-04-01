@@ -11,10 +11,12 @@ Install Rust if you don't already have it: https://www.rust-lang.org/tools/insta
 ```
 cargo install cargo-risczero
 ```
+
 You can now create a new project with
 ```
 cargo risczero new
 ```
+
 (An explanation of the template code is [also available](understanding_template.md).)
 
 ## Step 2: Modify file names (and their references)
@@ -41,11 +43,12 @@ We want to name it something that represents what the guest program does -- let'
 
 In order to access this guest code from the host driver program, the host program `factors/src/main.rs` includes two guest methods:
 
-```
+```rust
 use methods::{METHOD_NAME_ELF, METHOD_NAME_ID};
 ```
+
 Both of these must be changed to reflect the new guest program name:
-```
+```rust
 use methods::{MULTIPLY_ELF, MULTIPLY_ID};
 ```
 (As an aside, if you add more than one callable guest program to your next RISC Zero zkVM project, you'll need to include these `ELF` and `ID` references once for each guest file.)
@@ -54,8 +57,8 @@ While we're at it, let's change the rest of the references in `factors/src/main.
 Don't worry about why these lines are included yet; for now, we're just being diligent not to leave dead references behind.
 Here are what the other two lines with `METHOD_NAME_ELF` and `METHOD_NAME_ID` should look like after updating:
 
-```
-    let mut prover = Prover::new(MULTIPLY_ELF, MULTIPLY_ID)
+```rust
+    let mut prover = Prover::new(MULTIPLY_ELF)
         .expect("Prover should be constructed from valid method source code and corresponding image ID");
 
 ...
@@ -83,8 +86,8 @@ fn main() {
 Currently, our host driver program creates and runs a prover.
 The `prover.run()` command will cause our guest program to execute:
 
-```
-    let mut prover = Prover::new(MULTIPLY_ELF, MULTIPLY_ID)
+```rust
+    let mut prover = Prover::new(MULTIPLY_ELF)
         .expect("Prover should be constructed from valid method source code and corresponding image ID");
 
     let receipt = prover.run()
@@ -94,8 +97,8 @@ The `prover.run()` command will cause our guest program to execute:
  Because the prover is responsible for managing guest-readable memory, we need to share them after the prover is created.
  To accomplish this, let's send our two values to the guest between the lines listed above:
 
- ```
-    let mut prover = Prover::new(MULTIPLY_ELF, MULTIPLY_ID)
+ ```rust
+    let mut prover = Prover::new(MULTIPLY_ELF)
         .expect("Prover should be constructed from valid method source code and corresponding image ID");
 
     prover.add_input_u32_slice(&to_vec(&a).unwrap());
@@ -117,7 +120,7 @@ We'll then publicly commit their product to the `receipt` portion of the `journa
 
 Here is the complete guest program.
 We'll break this down step by step below:
-```
+```rust
 pub fn main() {
     // Load the first number from the host
     let a: u64 = env::read();
@@ -138,7 +141,7 @@ First, add `use risc0_zkvm::guest::env;` at the top of the file (outside of the 
 
 Then, we use `env::read()` to load both numbers:
 
-```
+```rust
     let a: u64 = env::read();
     let b: u64 = env::read();
 ```
@@ -158,14 +161,14 @@ Now we can compute their product and `commit` it. Once committed to the `journal
 
 For this step, we return to the main file for the host driver program at `factors/src/main.rs`, which currently ends with `receipt` generation after the prover runs:
 
-```
+```rust
     let receipt = prover.run().unwrap()
         .expect("Code should be provable unless it had an error or overflowed the maximum cycle count");
 ```
 
 Now that we have a value to read from the receipt, let's extract the journal's contents. Below the line above, add the following lines.
 
-```
+```rust
     // Extract journal of receipt (i.e. output c, where c = a * b)
     let c: u64 = from_slice(&receipt.journal).unwrap();
 
