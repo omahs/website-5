@@ -65,8 +65,6 @@ F---I(The values of all contents<br>written to the public journal)
 end
 style B fill:#3c6464
 style x fill:none, stroke:none
-style H fill:none,stroke:none
-style I fill:none,stroke:none
 ```
 
 For more details on this process, see our [zkVM Overview](https://www.risczero.com/docs/explainers/zkvm/); for maximal detail, see our [proof system sequence diagram](https://www.risczero.com/docs/explainers/proof-system/proof-system-sequence-diagram). In the next section, we'll show how this process is managed from the perspective of the host program, the guest zkVM program, and the prover object that we call from the host.

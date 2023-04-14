@@ -46,3 +46,9 @@
 [data-theme='dark'] .mermaid .flowchart-link {
       filter: invert(51%) sepia(84%) saturate(405%) hue-rotate(21deg) brightness(94%) contrast(91%) !important;
 }
+[data-theme='dark'] .mermaid .cluster-label {
+      filter: invert(51%) sepia(84%) saturate(405%) hue-rotate(21deg) brightness(94%) contrast(91%) !important;
+}
+[data-theme='dark'] .mermaid .messageText {
+      stroke:none !important; fill:white !important;
+}
