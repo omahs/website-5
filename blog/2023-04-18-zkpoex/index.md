@@ -70,7 +70,7 @@ That led to approximately 16GB RAM requirement and 4 minutes runtime using an Ap
 
 # zkPoEX and RISC Zero
 
-Thank you to the zkPoEX team to collaborating with us to ensure this post was accurate
+Thank you to the zkPoEX team to collaborating with us to ensure this post was accurate.
 
 zkPoEX was developed by [@zkoranges](https://twitter.com/zkoranges) and [@feder.eth](https://twitter.com/feder_eth) with acknowledgements to Daniel Lumi for advisory and Maciej Zieliński for his insightful [blog post](https://odra.dev/blog/evm-at-risc0/) on EVM inside the RISC Zero zkVM. 
 
