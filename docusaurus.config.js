@@ -30,6 +30,8 @@ const config = {
           editUrl: 'https://github.com/risc0/website/edit/main/',
         },
         blog: {
+          remarkPlugins: [math, require('mdx-mermaid')],
+          rehypePlugins: [katex],
           showReadingTime: true,
           // Please change this to your repo.
           editUrl: 'https://github.com/risc0/website/edit/main/',
