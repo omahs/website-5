@@ -15,21 +15,21 @@ module.exports = {
 
   GettingStartedSidebar: [
     { type: 'category',
-      label: '"Hello, Multiply!"',
+      label: 'Factors Tutorial',
       items: [
         {
-          type: 'doc',
-          label: '"Hello, Multiply!" Tutorial',
-          id: 'examples/hello_multiply',
+          type: 'link',
+          label: '"Factors" Tutorial',
+          href: 'https://github.com/risc0/risc0/tree/main/examples/factors#tutorial',
         },
         {
           type: 'doc',
-          label: 'Understanding "Hello, Multiply!"',
-          id: 'examples/understanding-hello-multiply',
+          label: 'Understanding "Factors"',
+          id: 'examples/understanding-factors',
         },
         {
           type: 'link',
-          label: '"Hello, Multiply!" Source',
+          label: '"Factors" Source',
           href: 'https://github.com/risc0/risc0/tree/main/examples/factors',
         },
       ]

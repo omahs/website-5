@@ -29,7 +29,7 @@ In particular, it should help you understand:
 
 This tutorial will *not* include:
 
-- How to create a project based on the starter template (see [Hello, Multiply](https://www.risczero.com/docs/examples/hello_multiply))
+- How to create a project based on the starter template (see the [Factors](https://github.com/risc0/risc0/tree/main/examples/factors#tutorial) Tutorial)
 - Project structure and information about the build system (see [Understanding the RISC Zero zkVM Starter Template](https://www.risczero.com/docs/examples/understanding_template))
 - The cryptographic theory behind the RISC Zero zkVM (see our [proof system explainers and reference materials](https://www.risczero.com/docs/explainers))
 - The internal components of the RISC Zero zkVM (see our [Overview of the zkVM](https://www.risczero.com/docs/explainers/zkvm) article)

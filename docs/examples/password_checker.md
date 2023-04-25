@@ -4,7 +4,7 @@ slug: password-checker
 
 # Checking Password Validity With the RISC Zero zkVM
 
-In this example, we'll discuss the security value of running a program as part of a RISC Zero zkVM project. We recommend pairing this document with the [password validity checker](https://github.com/risc0/risc0/tree/main/examples/password-checker) example in our Rust examples repository. We assume a high-level understanding of RISC Zero zkVM project design; if you'd like an example that describes a zkVM project in greater operational detail, we recommend the [Hello, Multiply! project explanation](../examples/understanding-hello-multiply.md).
+In this example, we'll discuss the security value of running a program as part of a RISC Zero zkVM project. We recommend pairing this document with the [password validity checker](https://github.com/risc0/risc0/tree/main/examples/password-checker) example in our Rust examples repository. We assume a high-level understanding of RISC Zero zkVM project design; if you'd like an example that describes a zkVM project in greater operational detail, we recommend the [Hello, Multiply! project explanation](../examples/understanding-factors.md).
 
 We'll take the perspective of Bob's Identity Service, which needs to set up authentication credentials for Alice. By the time you're finished reading this explanation, you should be able to broadly identify how Alice and Bob are relying on the RISC Zero zkVM.
 
@@ -12,14 +12,16 @@ We'll take the perspective of Bob's Identity Service, which needs to set up auth
 
 For those looking to implement their own password solutions: we do not present a complete implementation of a password validity checking program, nor is our example one that follows [guidelines recommended by NIST](https://pages.nist.gov/800-63-FAQ/#q-b06), which caution "against the use of composition rules (e.g., requiring lower-case, upper-case, digits, and/or special characters) for memorized secrets". Bob's Identity Service should responsibly further process Alice's resulting SHA256 salted password hash using a KDF such as scrypt before storing it in a database. This example has also not supplied the mechanism by which Alice confirms she is the actor responsible for generating her new password. <b>Our purpose here is simply to illustrate the power of sharing the results of private computations.</b>
 
+While the general concepts discussed in this article should persist across versions, our API is undergoing many changes prior to our 1.0 release, so some details here may be version-specific. This article was last updated for [v0.14](https://github.com/risc0/risc0/releases/tag/v0.14.0).
+
 # Overview
 
-In some ways, Alice's process follows convention. Alice generates a `password` that meets Bob's requirements, and Bob receives a `SHA-256 hash of Alice's password` along with a `salt`. Like all RISC Zero projects for the zkVM, the bulk of the password checker program is divided between a [host driver](https://github.com/risc0/risc0/blob/main/examples/password-checker/src/main.rs) that runs the zkVM code and a [guest program](https://github.com/risc0/risc0/blob/main/examples/password-checker/methods/guest/src/main.rs) that executes on the zkVM. By taking advantage of the RISC Zero zkVM, Alice can run a password validity check and her password never needs to leave her local machine. Alice's process is as follows:
+In some ways, Alice's process follows convention. Alice generates a `password` that meets Bob's requirements, and Bob receives a `SHA-256 hash of Alice's password` along with a `salt`. Like all RISC Zero projects for the zkVM, the bulk of the password checker program is divided between a [host driver](https://github.com/risc0/risc0/blob/v0.14.0/examples/password-checker/src/main.rs) that runs the zkVM code and a [guest program](https://github.com/risc0/risc0/blob/v0.14.0/examples/password-checker/methods/guest/src/main.rs) that executes on the zkVM. By taking advantage of the RISC Zero zkVM, Alice can run a password validity check and her password never needs to leave her local machine. Alice's process is as follows:
 
 * Alice's `host driver program` shares a password and salt with the `guest zkVM` and initiates guest program execution.
 * The `guest zkVM program` checks Alice's password against a set of validity requirements.
 * If the password is valid, it is hashed with the provided salt using SHA-256. If not, the program panics and no computational receipt is generated.
-* The guest program generates a salted hash of Alice's password and commits it to a `journal`, part of a computational [`receipt`](https://docs.rs/risc0-zkvm/latest/risc0_zkvm/receipt/index.html).
+* The guest program generates a salted hash of Alice's password and commits it to a `journal`, part of a computational [`receipt`](https://docs.rs/risc0-zkvm/latest/risc0_zkvm/receipt/struct.Receipt.html).
 * Alice sends the receipt to Bob's Identity Service.
 
 # What Information Can A Zero-Knowledge Proof Provide?

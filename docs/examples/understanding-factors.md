@@ -1,11 +1,11 @@
 ---
 slug: starter
-title: Understanding Hello Multiply
+title: Understanding Factors
 ---
 
-The [Hello Multiply tutorial](hello_multiply.md) tells you how to write code that proves you know the factors of a number -- but what is this code doing? What mechanisms does the RISC Zero zkVM use to prove the execution of the source code you provide it?
+The [Factors tutorial](https://github.com/risc0/risc0/tree/main/examples/factors#tutorial) tells you how to write code that proves you know the factors of a number -- but what is this code doing? What mechanisms does the RISC Zero zkVM use to prove the execution of the source code you provide it?
 
-The complete answer to those questions requires detailed and precise cryptographic arguments. Nevertheless, here we present a short summary of what the zkVM is doing in Hello Multiply, as an overview of the general approach of the RISC Zero zkVM. We hope that this overview helps orient you to the components of the RISC Zero zkVM, and gives a sense of why it might be plausible that code executed in the zkVM could be proven to parties who don't trust the prover.
+The complete answer to those questions requires detailed and precise cryptographic arguments. Nevertheless, here we present a short summary of what the zkVM is doing in the Factors tutorial, as an overview of the general approach of the RISC Zero zkVM. We hope that this overview helps orient you to the components of the RISC Zero zkVM, and gives a sense of why it might be plausible that code executed in the zkVM could be proven to parties who don't trust the prover.
 
 By reading this post, you should learn, at a high level:
 * How RISC Zero can be used to convince someone that code has executed on the zkVM
@@ -15,26 +15,28 @@ By reading this post, you should learn, at a high level:
 
 This post will not cover:
 * A detailed cryptographic analysis of the RISC Zero zkVM (see our [proof system explainers and reference materials](../explainers))
-* How to write code using the RISC Zero zkVM (see the [Hello Multiply tutorial](hello_multiply.md), or [our examples generally](..))
+* How to write code using the RISC Zero zkVM (see the [Factors tutorial](https://github.com/risc0/risc0/tree/main/examples/factors#tutorial), or [our examples generally](https://github.com/risc0/risc0/tree/main/examples))
+
+While the general concepts discussed in this article should persist across versions, our API is undergoing many changes prior to our 1.0 release, so some details here may be version-specific. This article was last updated for [v0.14](https://github.com/risc0/risc0/releases/tag/v0.14.0).
 
 # Overview: A program to multiply two numbers in the zkVM
 
-In the Hello Multiply program, we demonstrate how to multiply two numbers and share their product without revealing what the two factors are. The RISC Zero zkVM provides a cryptographically strong argument that we performed the computation, which is witnessed by a verifiable "receipt." By sharing the receipt, we can convince a skeptical third party that we ran the computation faithfully and that the output is honest.
+In the Factors program, we demonstrate how to multiply two numbers and share their product without revealing what the two factors are. The RISC Zero zkVM provides a cryptographically strong argument that we performed the computation, which is witnessed by a verifiable "receipt." By sharing the receipt, we can convince a skeptical third party that we ran the computation faithfully and that the output is honest.
 
 # Differentiating host and guest code
 
-The host driver program runs the guest zkVM. Most code written for the guest zkVM lives in [`methods/guest/src/main.rs`](https://github.com/risc0/risc0/blob/main/examples/factors/methods/guest/src/main.rs). The main function for our host program code  lives in [`factors/src/main.rs`](https://github.com/risc0/risc0/blob/main/examples/factors/src/main.rs).
+The host driver program runs the guest zkVM. Most code written for the guest zkVM lives in [`methods/guest/src/main.rs`](https://github.com/risc0/risc0/blob/v0.14.0/examples/factors/methods/guest/src/main.rs). The main function for our host program code lives in [`src/main.rs`](https://github.com/risc0/risc0/blob/v0.14.0/examples/factors/src/main.rs).
 
 When the host code executes, it creates a prover instance that is responsible for all guest zkVM interactions:
 
 ```rust
-    let mut prover = Prover::new(MULTIPLY_ELF).unwrap();
+    let mut prover = Prover::new(MULTIPLY_ELF)
 ```
 
- The prover runs an ELF binary of the zkVM guest code. After the guest code has executed, the prover returns a [receipt](https://docs.rs/risc0-zkvm/latest/risc0_zkvm/receipt/index.html). In our example, these are accomplished with the following line in the `factors/src/main.rs` host source code:
+ The prover runs an ELF binary of the zkVM guest code. After the guest code has executed, the prover returns a [receipt](https://docs.rs/risc0-zkvm/latest/risc0_zkvm/receipt/struct.Receipt.html). In our example, these are accomplished with the following line in the `src/main.rs` host source code:
 
 ```rust
-let receipt = prover.run().unwrap();
+let receipt = prover.run()
 ```
 
 # Understanding the prover
@@ -100,19 +102,19 @@ B->>B: recipient verifies receipt
 B->>B: recipient reads prime product<br>from receipt journal
 ```
 
-Some of the steps described above are handled by [RISC Zero project code](https://github.com/risc0/risc0) (such as the `prover.run()` function); other steps are performed explicitly by host or guest code. For example, the values shown in the blue box are dictated by guest zkVM code (`multiply.rs`). Others, like verifying the execution trace and producing a receipt, are a part of our prover object's internally defined behavior.
+Some of the steps described above are handled by [RISC Zero project code](https://github.com/risc0/risc0) (such as the `prover.run()` function); other steps are performed explicitly by host or guest code. For example, the values shown in the blue box are dictated by guest zkVM code. Others, like verifying the execution trace and producing a receipt, are a part of our prover object's internally defined behavior.
 
-To get you started, the next section describes which actions must be explicitly included in host and guest code instructions. Read it along with the `main.rs` and `multiply.rs` files to get ready to create your own projects.
+To get you started, the next section describes which actions must be explicitly included in host and guest code instructions. Read it along with the host and guest source files to get ready to create your own projects.
 
 # Writing host and guest programs
 
-The following steps are included in the `main.rs` host program before the prover is called. Before the host program tells the prover to execute the guest program, it needs to make sure that all relevant methods and values are accessible to the guest.
+The following steps are included in the host program before the prover is called. Before the host program tells the prover to execute the guest program, it needs to make sure that all relevant methods and values are accessible to the guest.
 
 1. The host creates a Prover object, passing it the ELF path and image ID for `multiply`.
 
 2. The host makes sure that the guest can read the two numbers being multiplied. The function `prover.add_input_u32_slice()` sends the host-defined numbers to the guest.
 
-The host then calls the prover's `run()` method. The prover executes a compiled binary of the guest program, which sets in motion the process of generating a trace and producing a receipt. As the guest binary executes, the zkVM performs the following steps, as dictated by the code in `multiply.rs`:
+The host then calls the prover's `run()` method. The prover executes a compiled binary of the guest program, which sets in motion the process of generating a trace and producing a receipt. As the guest binary executes, the zkVM performs the following steps, as dictated by the code in the guest program:
 
 1. The two number values are read from guest-accessible memory using `env::read()`.
 
@@ -126,9 +128,9 @@ If we send the receipt to someone else, then they can see we ran the expected pr
 
 # A note on practical use
 
-For brevity (and to stay agnostic about use cases), our Hello Multiply example omits a few steps that would typically happen after the prover generates a receipt.
+For brevity (and to stay agnostic about use cases), our Factors example omits a few steps that would typically happen after the prover generates a receipt.
 
-In our example, the receipt is verified from the `main.rs` host program. However, the value of the receipt is that it can convince another party we ran the `multiply.rs` program. In a real-world scenario, then, we would want to send the receipt to someone else, most likely by serializing it and passing it over a network.
+In our example, the receipt is verified from the host program. However, the value of the receipt is that it can convince another party we ran the guest program. In a real-world scenario, then, we would want to send the receipt to someone else, most likely by serializing it and passing it over a network.
 
 We would also want to give the source code for the guest program to the recipient. The recipient would generate the `image ID` of the zkVM program binary on their side and use this to check the receipt's image ID.
 

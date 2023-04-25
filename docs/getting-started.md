@@ -7,9 +7,9 @@ displayed_sidebar: GettingStartedSidebar
 ## Just Starting Out
 
 If you're new to the RISC Zero zkVM, these examples and explanations will get you oriented.
-Below is a tutorial that'll help you build our version of "Hello, World!" and an introduction to the default RISC Zero project template.
+Below is a tutorial that'll help you build our version of "Hello, World!" and an introduction to the `cargo risczero` tool for creating RISC Zero projects.
 
-* [**Hello, Multiply!**](examples/hello_multiply.md) -
+* [**Factors**](https://github.com/risc0/risc0/tree/main/examples/factors#tutorial) -
 Think of this as "Hello, World!" for the RISC Zero zkVM.
 By following this tutorial, you'll create a program that demonstrates a number is composite (and that you know its factors).
 If you're just getting started writing code for the zkVM, we recommend starting here.
@@ -22,7 +22,7 @@ You'll understand which parts are necessary and which can be changed, and get a 
 ## Project Examples
 
 For more ideas about what's possible with RISC Zero, take a look at [examples](https://github.com/risc0/risc0/tree/main/examples).
-We also provide detailed explanations for the factors example (in [Hello, Multiply](examples/hello_multiply.md) above) and for the password-checker example:
+We also provide detailed explanations for the factors example (in the [Factors](https://github.com/risc0/risc0/tree/main/examples/factors#tutorial) Tutorial above) and for the password-checker example:
 
 * [**RISC Zero Password Validity Checker**](examples/password_checker.md) -
 In this example, you'll see Alice convince Bob's Identity Service that her password meets Bob's validity requirements.
