@@ -46,6 +46,11 @@ paul:
   url: https://twitter.com/Paul_Gafni
   image_url: /img/paul.jpg
 
+kay:
+  name: Kay Mills
+  title: Developer Experience
+  url: https://github.com/3lkn
+
 erik: 
   name: Erik Kaneda
   title: Senior Software Engineer
