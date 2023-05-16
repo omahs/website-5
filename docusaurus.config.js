@@ -141,6 +141,7 @@ const config = {
         theme: lightCodeTheme,
         darkTheme: darkCodeTheme,
       },
+      image: 'img/logo-name.png',
     }),
 };
 
