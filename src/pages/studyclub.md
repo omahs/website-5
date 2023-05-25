@@ -4,11 +4,21 @@ displayed_sidebar: TechnologySidebar
 
 # Study Club
 
+[Zoom Link]: https://zoom.us/j/99200763534
+[continuations]: https://risczero.com/blog/continuations
+
 RISC Zero's Study Club sessions aim to introduce the pre-requisite concepts necessary to understand our [technology](../../docs/explainers/)
 
 ## Upcoming Sessions
-Stay tuned for upcoming study club sessions! 
-We'll post announcements here, on [Twitter](https://twitter.com/risczero), and on [Discord](https://discord.gg/risczero).
+We'll post announcements for upcoming talks on this page, on [Twitter](https://twitter.com/risczero), and on [Discord](https://discord.gg/risczero).
+
+**Continuations in zkVM: Enabling large computations, easily <br/>
+Frank Laub, Co-founder & CTO <br/>
+May 31, 9am Pacific // 4pm UTC <br/>
+[Zoom Link] <br/>**
+We recently released a new feature called [continuations], that removes the "cycle limit" for RISC Zero's proof generation. 
+This feature unlocks the ability to run an EVM or WASM interpreter inside our zkVM. This talk will cover both how continuations work and how to use them.<br/>
+
 
 ## Past Sessions
 Full recordings and slides from past sessions are available [here](https://www.youtube.com/playlist?list=PLcPzhUaCxlCjdhONxEYZ1dgKjZh3ZvPtl)
