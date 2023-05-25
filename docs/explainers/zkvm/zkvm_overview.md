@@ -2,6 +2,7 @@
 sidebar_position: 2
 slug: ./
 ---
+[computational receipt]: https://docs.rs/risc0-zkvm/latest/risc0_zkvm/receipt/
 
 # Overview of the zkVM
 
@@ -9,7 +10,7 @@ slug: ./
 If you have questions/feedback or if you find errors, please let us know on [Twitter](https://twitter.com/risczero) or [Discord](https://discord.gg/risczero).*
 
 A zero-knowledge virtual machine (zkVM) is a virtual machine that runs trusted code and generates proofs that authenticate the zkVM output.  
-RISC Zero's [zkVM](what_is_risc_zero.md) implementation, based on the RISC-V architecture, executes code and produces a [computational receipt](https://docs.rs/risc0-zkvm/latest/risc0_zkvm/receipt/struct.Receipt.html).
+RISC Zero's [zkVM](what_is_risc_zero.md) implementation, based on the RISC-V architecture, executes code and produces a [computational receipt].
 
 This document describes, at a high level, the components involved in this process. 
 After reading this, you should understand the general process of receipt creation and be familiar with the language we use to describe the zkVM's operations. 

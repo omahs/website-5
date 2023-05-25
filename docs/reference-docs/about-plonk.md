@@ -1,9 +1,11 @@
+[receipt]: https://docs.rs/risc0-zkvm/latest/risc0_zkvm/receipt/
+
 # About PLONK and PLOOKUP
 The [PLONK paper](https://eprint.iacr.org/2019/953) introduced an efficient technique for enforcing the validity of memory operations in arguments of computational integrity. 
 Building on top of PLONK, the [PLOOKUP paper](https://eprint.iacr.org/2020/315.pdf) introduced a method of enforcing the validity of lookup operations. 
 
 ## Relevance in RISC Zero
-RISC Zero's zkVM makes use of both PLONK and PLOOKUP in the process of generating a [receipt](https://docs.rs/risc0-zkvm/latest/risc0_zkvm/receipt/struct.Receipt.html). 
+RISC Zero's zkVM makes use of both PLONK and PLOOKUP in the process of generating a [receipt].
 PLONK is used to generate constraints that authenticate [re-ordering of RISC-V memory data](https://www.youtube.com/watch?v=dYuEPvRLwLo&list=PLcPzhUaCxlCiLk_VjLUNbmfb2mB1Y_N9N&index=6).
 PLOOKUP is used to generate constraints that enforce a bytes-based range-check. 
 

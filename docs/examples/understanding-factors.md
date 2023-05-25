@@ -33,7 +33,7 @@ When the host code executes, it creates a prover instance that is responsible fo
     let mut prover = Prover::new(MULTIPLY_ELF)
 ```
 
- The prover runs an ELF binary of the zkVM guest code. After the guest code has executed, the prover returns a [receipt](https://docs.rs/risc0-zkvm/latest/risc0_zkvm/receipt/struct.Receipt.html). In our example, these are accomplished with the following line in the `src/main.rs` host source code:
+ The prover runs an ELF binary of the zkVM guest code. After the guest code has executed, the prover returns a [receipt](https://docs.rs/risc0-zkvm/latest/risc0_zkvm/receipt/). In our example, these are accomplished with the following line in the `src/main.rs` host source code:
 
 ```rust
 let receipt = prover.run()

@@ -1,5 +1,7 @@
+[computational receipts]: https://docs.rs/risc0-zkvm/latest/risc0_zkvm/receipt/
+
 # About Finite Fields 
-*RISC Zero's [computational receipts](https://docs.rs/risc0-zkvm/latest/risc0_zkvm/receipt/struct.Receipt.html) are built by converting an assertion of computational integrity into an assertion about polynomials over finite fields. 
+*RISC Zero's [computational receipts] are built by converting an assertion of computational integrity into an assertion about polynomials over finite fields. 
 This document serves as a minimal introduction to finite fields, targeted at folks who have some exposure to modular arithmetic and who are curious to learn more about the [math and cryptography behind RISC Zero](../explainers/proof-system/proof-system.md).*  
 
 ## Finite Fields 101: Reciprocals, Exponents, and Generators

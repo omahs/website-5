@@ -1,10 +1,13 @@
 ---
 sidebar_position: 4
 ---
+[zkVM]: https://docs.rs/risc0-zkvm/latest/risc0_zkvm/
+[Receipt]: https://docs.rs/risc0-zkvm/latest/risc0_zkvm/receipt/
+[Session]: https://docs.rs/risc0-zkvm/latest/risc0_zkvm/struct.Session.html
 
-# ZKP Sequence Diagram and Spec
+# IOP Sequence Diagram and Spec
 
-*RISC Zero offers a [computational receipt](https://docs.rs/risc0-zkvm/latest/risc0_zkvm/receipt/struct.Receipt.html) for any code that runs within the [RISC Zero zkVM](../zkvm/zkvm_overview.md), which serves to verifiably link the code that ran to the asserted output. 
+*When the RISC Zero [zkVM] executes, it produces a [Receipt] that serves as a proof of validity of a given [Session]. 
 RISC Zero's receipts are built on the shoulders of several recent advances in the world of Zero-Knowledge Cryptography: [zk-STARKs](https://eprint.iacr.org/2018/046.pdf), [PLONK](https://eprint.iacr.org/2019/953.pdf), and [DEEP-ALI](https://arxiv.org/pdf/1903.12243.pdf).*
 
 *In this document, we present a succinct introduction to the RISC Zero Proof system, including a sequence diagram and a step-by-step description of the RISC Zero Non-Interactive Argument of Knowledge. 

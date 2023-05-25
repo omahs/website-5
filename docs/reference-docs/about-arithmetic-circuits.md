@@ -1,3 +1,6 @@
+[verified]: https://docs.rs/risc0-zkvm/latest/risc0_zkvm/receipt/#usage
+[receipt]: https://docs.rs/risc0-zkvm/latest/risc0_zkvm/receipt/
+
 # About Arithmetic Circuits
 
 [Arithmetic circuits](https://en.wikipedia.org/wiki/Arithmetic_circuit_complexity) consist of a collection of wires and gates, where the wires hold [elements of a finite field](about-finite-fields.md) and each gate computes either finite field addition or finite field multiplication.
@@ -23,7 +26,7 @@ The circuit pictured above can be written as $C(x_1, x_2) = (x_1+x_2)\cdot x_2 \
 At RISC Zero, we adopt the latter approach: we've written a [RISC-V circuit](https://docs.rs/risc0-circuit-rv32im/latest/risc0_circuit_rv32im/), which emulates rv32im. 
 The rv32im circuit receives a RISC-V binary and some user specified input, and generates an [execution trace](../explainers/proof-system/what_is_a_trace.md).
 
-If the execution trace is valid, the [Prover](https://docs.rs/risc0-zkvm/latest/risc0_zkvm/prove/index.html) generates a [zkVM receipt](https://docs.rs/risc0-zkvm/latest/risc0_zkvm/receipt/struct.Receipt.html) that can be verified by [receipt.verify()](https://docs.rs/risc0-zkvm/latest/risc0_zkvm/receipt/struct.Receipt.html#method.verify).
+If the execution trace is valid, the [Prover](https://docs.rs/risc0-zkvm/latest/risc0_zkvm/prove/index.html) generates a [receipt] that can be [verified] by a skeptical third party. 
 
 ## RISC Zero's Circuits
 In addition to the rv32im circuit, we have built:
