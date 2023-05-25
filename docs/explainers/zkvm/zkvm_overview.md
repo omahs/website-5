@@ -2,9 +2,9 @@
 sidebar_position: 2
 slug: ./
 ---
-[computational receipt]: https://docs.rs/risc0-zkvm/latest/risc0_zkvm/receipt/
-
 # Overview of the zkVM
+
+[computational receipt]: https://docs.rs/risc0-zkvm/latest/risc0_zkvm/receipt/
 
 *To invite collaboration and open source development, this is an early-release of documentation-in-progress. 
 If you have questions/feedback or if you find errors, please let us know on [Twitter](https://twitter.com/risczero) or [Discord](https://discord.gg/risczero).*

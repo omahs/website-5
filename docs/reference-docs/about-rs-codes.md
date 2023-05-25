@@ -1,6 +1,7 @@
+# About Reed Solomon Codes
+
 [receipt]: https://docs.rs/risc0-zkvm/latest/risc0_zkvm/receipt/
 
-# About Reed Solomon Codes
 [Reed Solomon codes](https://en.wikipedia.org/wiki/Reed–Solomon_error_correction) (RS codes) are a family of [error correcting codes](https://en.wikipedia.org/wiki/Error_correction_code) based on polynomials over [finite fields](about-finite-fields.md). 
 
 ## Documentation

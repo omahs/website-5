@@ -3,6 +3,9 @@ sidebar_position: 1
 slug: ./
 ---
 
+# Proof System Overview
+
+
 [zkVM]: https://docs.rs/risc0-zkvm/latest/risc0_zkvm/
 [SessionReceipt]: https://docs.rs/risc0-zkvm/latest/risc0_zkvm/receipt/
 [Session]: https://docs.rs/risc0-zkvm/latest/risc0_zkvm/struct.Session.html
@@ -18,9 +21,6 @@ slug: ./
 [IOP Sequence Diagram]: proof-system-sequence-diagram.md
 [RISC Zero Study Club]: https://risczero.com/studyclub
 [YouTube Channel]: https://www.youtube.com/watch?v=MYYb5TXdm4c&list=PLcPzhUaCxlCgCvzkkaBWzVuHdBRsTNxj1
-
-
-# Proof System Overview
 
 When the RISC Zero [zkVM] executes, it produces a [SessionReceipt] that serves as a proof of validity of a given [Session]. 
 
