@@ -14,7 +14,7 @@ The contents of the [journal] are specified by calling [env::commit()] and [env:
 
 Cryptographically speaking, the [SessionReceipt] is a collection of [ZK-STARKs], each of which proves a single [Segment]. 
 
-The details of the RISC Zero ZK-STARK are described in our [ZKP Whitepaper] and in this [IOP Sequence Diagram].
+The details of the RISC Zero ZK-STARK are described in our [ZKP Whitepaper] and in this [Sequence Diagram].
 
 ## Learn More
 ### About the zkVM
@@ -50,6 +50,6 @@ The details of the RISC Zero ZK-STARK are described in our [ZKP Whitepaper] and 
 [ZK-STARKs]: ../../reference-docs/about-starks.md
 [Segment]: https://docs.rs/risc0-zkvm/latest/risc0_zkvm/struct.Segment.html
 [ZKP Whitepaper]: https://www.risczero.com/proof-system-in-detail.pdf 
-[IOP Sequence Diagram]: proof-system-sequence-diagram.md
+[Sequence Diagram]: proof-system-sequence-diagram.md
 [RISC Zero Study Club]: https://risczero.com/studyclub
 [YouTube Channel]: https://www.youtube.com/watch?v=MYYb5TXdm4c&list=PLcPzhUaCxlCgCvzkkaBWzVuHdBRsTNxj1

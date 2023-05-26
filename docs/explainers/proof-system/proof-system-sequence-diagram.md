@@ -2,7 +2,7 @@
 sidebar_position: 4
 ---
 
-# IOP Sequence Diagram and Spec
+# Proof System Sequence Diagram and Spec
 
 *When the RISC Zero [zkVM] executes, it produces a [Receipt] that serves as a proof of validity of a given [Session]. 
 RISC Zero's receipts are built on the shoulders of several recent advances in the world of Zero-Knowledge Cryptography: [zk-STARKs](https://eprint.iacr.org/2018/046.pdf), [PLONK](https://eprint.iacr.org/2019/953.pdf), and [DEEP-ALI](https://arxiv.org/pdf/1903.12243.pdf).*
