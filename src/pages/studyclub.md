@@ -4,9 +4,6 @@ displayed_sidebar: TechnologySidebar
 
 # Study Club
 
-[Zoom Link]: https://zoom.us/j/99200763534
-[continuations]: https://risczero.com/blog/continuations
-
 RISC Zero's Study Club sessions aim to introduce the pre-requisite concepts necessary to understand our [technology](../../docs/explainers/)
 
 ## Upcoming Sessions
@@ -38,4 +35,7 @@ Full recordings and slides from past sessions are available [here](https://www.y
 - [FRI Mechanics: Folding, Committing, and Batching](https://www.youtube.com/watch?v=wqRuoyH3Mqk&list=PLcPzhUaCxlCjdhONxEYZ1dgKjZh3ZvPtl&index=8)
 
 ## Other Educational Videos
-You may also be interested in some of our other [talks and podcasts](https://www.youtube.com/watch?v=MYYb5TXdm4c&list=PLcPzhUaCxlCgCvzkkaBWzVuHdBRsTNxj1) or our developer-focused workshops from [ZKHack III](https://www.youtube.com/watch?v=ZFVjooWdXVE&list=PLcPzhUaCxlCgig7ofeARMPwQ8vbuD6hC5) and [ZKHack Lisbon](https://www.youtube.com/watch?v=saVD9qo3aJ0). 
+You may also be interested in some of our other [talks and podcasts](https://www.youtube.com/watch?v=MYYb5TXdm4c&list=PLcPzhUaCxlCgCvzkkaBWzVuHdBRsTNxj1) or our developer-focused workshops from [ZKHack III](https://www.youtube.com/watch?v=ZFVjooWdXVE&list=PLcPzhUaCxlCgig7ofeARMPwQ8vbuD6hC5) and [ZKHack Lisbon](https://www.youtube.com/watch?v=saVD9qo3aJ0).
+
+[Zoom Link]: https://zoom.us/j/99200763534
+[continuations]: https://risczero.com/blog/continuations

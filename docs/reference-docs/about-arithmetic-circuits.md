@@ -1,8 +1,5 @@
 # About Arithmetic Circuits
 
-[verified]: https://docs.rs/risc0-zkvm/latest/risc0_zkvm/receipt/#usage
-[receipt]: https://docs.rs/risc0-zkvm/latest/risc0_zkvm/receipt/
-
 [Arithmetic circuits](https://en.wikipedia.org/wiki/Arithmetic_circuit_complexity) consist of a collection of wires and gates, where the wires hold [elements of a finite field](about-finite-fields.md) and each gate computes either finite field addition or finite field multiplication.
 In contrast, in an [electronic circuit](https://en.wikipedia.org/wiki/Electronic_circuit), the wires either contain electrical signal or they don't, and each gate may compute a variety of logical operations. 
 
@@ -36,3 +33,6 @@ In addition to the rv32im circuit, we have built:
 ## Additional Resources
 - Wikipedia page on [arithmetic circuit complexity](https://en.wikipedia.org/wiki/Arithmetic_circuit_complexity)
 - [From programs to arithmetic circuits](https://www.youtube.com/watch?v=0M0pAubEjz8&list=PLBJMt6zV1c7Gh9Utg-Vng2V6EYVidTFCC&index=4): YouTube video from David Wong
+
+[verified]: https://docs.rs/risc0-zkvm/latest/risc0_zkvm/receipt/#usage
+[receipt]: https://docs.rs/risc0-zkvm/latest/risc0_zkvm/receipt/

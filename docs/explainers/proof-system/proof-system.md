@@ -5,23 +5,6 @@ slug: ./
 
 # Proof System Overview
 
-
-[zkVM]: https://docs.rs/risc0-zkvm/latest/risc0_zkvm/
-[SessionReceipt]: https://docs.rs/risc0-zkvm/latest/risc0_zkvm/receipt/
-[Session]: https://docs.rs/risc0-zkvm/latest/risc0_zkvm/struct.Session.html
-[SessionReceipt::verify]: https://docs.rs/risc0-zkvm/latest/risc0_zkvm/receipt/#usage
-[ImageID]: https://docs.rs/risc0-build/latest/risc0_build/
-[journal]: https://docs.rs/risc0-zkvm/latest/risc0_zkvm/receipt/struct.SessionReceipt.html#structfield.journal
-[env::commit()]: https://docs.rs/risc0-zkvm/latest/risc0_zkvm/guest/env/index.html#functions
-[env::commit_slice()]: https://docs.rs/risc0-zkvm/latest/risc0_zkvm/guest/env/index.html#functions
-[guest]: https://docs.rs/risc0-zkvm/latest/risc0_zkvm/guest/index.html
-[ZK-STARKs]: ../../reference-docs/about-starks.md
-[Segment]: https://docs.rs/risc0-zkvm/latest/risc0_zkvm/struct.Segment.html
-[ZKP Whitepaper]: https://www.risczero.com/proof-system-in-detail.pdf 
-[IOP Sequence Diagram]: proof-system-sequence-diagram.md
-[RISC Zero Study Club]: https://risczero.com/studyclub
-[YouTube Channel]: https://www.youtube.com/watch?v=MYYb5TXdm4c&list=PLcPzhUaCxlCgCvzkkaBWzVuHdBRsTNxj1
-
 When the RISC Zero [zkVM] executes, it produces a [SessionReceipt] that serves as a proof of validity of a given [Session]. 
 
 To confirm that a [SessionReceipt] was honestly generated, use [SessionReceipt::verify] and supply the [ImageID] of the code that should have been executed as a parameter. 
@@ -55,3 +38,18 @@ The details of the RISC Zero ZK-STARK are described in our [ZKP Whitepaper] and 
   - [Intro to the FRI Protocol](https://www.youtube.com/watch?v=11DIflEwx50&list=PLcPzhUaCxlCjdhONxEYZ1dgKjZh3ZvPtl&index=1)
   - [Finite Field Implementation Options: Barrett & Montgomery Multiplication](https://www.youtube.com/watch?v=hUl8ZB6hpUM&list=PLcPzhUaCxlCjdhONxEYZ1dgKjZh3ZvPtl&index=6)
 
+[zkVM]: https://docs.rs/risc0-zkvm/latest/risc0_zkvm/
+[SessionReceipt]: https://docs.rs/risc0-zkvm/latest/risc0_zkvm/receipt/
+[Session]: https://docs.rs/risc0-zkvm/latest/risc0_zkvm/struct.Session.html
+[SessionReceipt::verify]: https://docs.rs/risc0-zkvm/latest/risc0_zkvm/receipt/#usage
+[ImageID]: https://docs.rs/risc0-build/latest/risc0_build/
+[journal]: https://docs.rs/risc0-zkvm/latest/risc0_zkvm/receipt/struct.SessionReceipt.html#structfield.journal
+[env::commit()]: https://docs.rs/risc0-zkvm/latest/risc0_zkvm/guest/env/index.html#functions
+[env::commit_slice()]: https://docs.rs/risc0-zkvm/latest/risc0_zkvm/guest/env/index.html#functions
+[guest]: https://docs.rs/risc0-zkvm/latest/risc0_zkvm/guest/index.html
+[ZK-STARKs]: ../../reference-docs/about-starks.md
+[Segment]: https://docs.rs/risc0-zkvm/latest/risc0_zkvm/struct.Segment.html
+[ZKP Whitepaper]: https://www.risczero.com/proof-system-in-detail.pdf 
+[IOP Sequence Diagram]: proof-system-sequence-diagram.md
+[RISC Zero Study Club]: https://risczero.com/studyclub
+[YouTube Channel]: https://www.youtube.com/watch?v=MYYb5TXdm4c&list=PLcPzhUaCxlCgCvzkkaBWzVuHdBRsTNxj1

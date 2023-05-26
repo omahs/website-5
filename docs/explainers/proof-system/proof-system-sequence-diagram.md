@@ -4,10 +4,6 @@ sidebar_position: 4
 
 # IOP Sequence Diagram and Spec
 
-[zkVM]: https://docs.rs/risc0-zkvm/latest/risc0_zkvm/
-[Receipt]: https://docs.rs/risc0-zkvm/latest/risc0_zkvm/receipt/
-[Session]: https://docs.rs/risc0-zkvm/latest/risc0_zkvm/struct.Session.html
-
 *When the RISC Zero [zkVM] executes, it produces a [Receipt] that serves as a proof of validity of a given [Session]. 
 RISC Zero's receipts are built on the shoulders of several recent advances in the world of Zero-Knowledge Cryptography: [zk-STARKs](https://eprint.iacr.org/2018/046.pdf), [PLONK](https://eprint.iacr.org/2019/953.pdf), and [DEEP-ALI](https://arxiv.org/pdf/1903.12243.pdf).*
 
@@ -100,3 +96,7 @@ sequenceDiagram
 - We omit the details of the [FRI Protocol](../../reference-docs/about-fri.md) for brevity. 
 
 Thanks for reading! If you have questions or feedback, we'd love to hear from you on Discord or Twitter.
+
+[zkVM]: https://docs.rs/risc0-zkvm/latest/risc0_zkvm/
+[Receipt]: https://docs.rs/risc0-zkvm/latest/risc0_zkvm/receipt/
+[Session]: https://docs.rs/risc0-zkvm/latest/risc0_zkvm/struct.Session.html

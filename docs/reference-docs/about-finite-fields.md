@@ -1,6 +1,4 @@
-# About Finite Fields 
-
-[computational receipts]: https://docs.rs/risc0-zkvm/latest/risc0_zkvm/receipt/
+# About Finite Fields
 
 *RISC Zero's [computational receipts] are built by converting an assertion of computational integrity into an assertion about polynomials over finite fields. 
 This document serves as a minimal introduction to finite fields, targeted at folks who have some exposure to modular arithmetic and who are curious to learn more about the [math and cryptography behind RISC Zero](../explainers/proof-system/proof-system.md).*  
@@ -53,3 +51,5 @@ More generally, multiplying by a 4th root of unity is a rotation of order 4.`
 - [Guruswami's Basics of Finite Fields](http://www.cs.cmu.edu/~venkatg/teaching/codingtheory-au14/notes/finite-fields.pdf)
 - [A. Sutherland's notes on finite fields and integer arithmetic](https://math.mit.edu/classes/18.783/2017/LectureNotes3.pdf)
 - [Splitting $x^{n}-1$ over a finite field](https://math.stackexchange.com/questions/2511486/)
+
+[computational receipts]: https://docs.rs/risc0-zkvm/latest/risc0_zkvm/receipt/

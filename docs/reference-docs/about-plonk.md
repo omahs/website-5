@@ -1,7 +1,5 @@
 # About PLONK and PLOOKUP
 
-[receipt]: https://docs.rs/risc0-zkvm/latest/risc0_zkvm/receipt/
-
 The [PLONK paper](https://eprint.iacr.org/2019/953) introduced an efficient technique for enforcing the validity of memory operations in arguments of computational integrity. 
 Building on top of PLONK, the [PLOOKUP paper](https://eprint.iacr.org/2020/315.pdf) introduced a method of enforcing the validity of lookup operations. 
 
@@ -35,3 +33,5 @@ For general references, we recommend the following:
 ### Very Technical
 - [PLONK paper](https://eprint.iacr.org/2019/953)
 - [PLOOKUP paper](https://eprint.iacr.org/2020/315.pdf)
+
+[receipt]: https://docs.rs/risc0-zkvm/latest/risc0_zkvm/receipt/

@@ -1,7 +1,5 @@
 # About Reed Solomon Codes
 
-[receipt]: https://docs.rs/risc0-zkvm/latest/risc0_zkvm/receipt/
-
 [Reed Solomon codes](https://en.wikipedia.org/wiki/Reed–Solomon_error_correction) (RS codes) are a family of [error correcting codes](https://en.wikipedia.org/wiki/Error_correction_code) based on polynomials over [finite fields](about-finite-fields.md). 
 
 ## Documentation
@@ -29,3 +27,5 @@ This error amplification means that even a single error in the execution trace c
 -  The [Reed-Solomon paper](https://faculty.math.illinois.edu/~duursma/CT/RS-1960.pdf) is quite clear and only a few pages long.
 -  The [Proximity Gaps for Reed-Solomon Codes](https://eprint.iacr.org/2020/654.pdf) paper is central to the soundness of the RISC Zero proof system. 
    - See also [Dan Carmon's talk](https://www.youtube.com/watch?v=v0ZHUPzKotY) at the IEEE Symposium on the Foundations of Computer Science
+
+[receipt]: https://docs.rs/risc0-zkvm/latest/risc0_zkvm/receipt/
