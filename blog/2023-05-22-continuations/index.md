@@ -19,7 +19,7 @@ tags: [zk, continuations, evm]
 [bonsai-waitlist]: https://fmree464va4.typeform.com/to/t6hZD54Z
 [segment-docs]: https://docs.rs/risc0-zkvm/latest/risc0_zkvm/struct.Segment.html
 [session-docs]: https://docs.rs/risc0-zkvm/latest/risc0_zkvm/struct.Session.html
-[cycles-docs]: https://docs.rs/risc0-zkvm/latest/risc0_zkvm/prove/struct.Prover.html#structfield.cycles
+[cycles-docs]: https://docs.rs/risc0-zkvm/latest/risc0_zkvm/struct.Segment.html#structfield.po2
 [segment-limit-docs]: https://docs.rs/risc0-zkvm/latest/risc0_zkvm/struct.ExecutorEnvBuilder.html#method.segment_limit_po2
 [session-receipt-docs]: https://docs.rs/risc0-zkvm/latest/risc0_zkvm/receipt/struct.SessionReceipt.html
 
