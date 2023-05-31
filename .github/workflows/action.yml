@@ -17,7 +17,7 @@ jobs:
           url: "https://www.risczero.com"
           # optional:
           honorRobotExclusions: false
-          ignorePatterns: "github,google"
+          ignorePatterns: "github,google,twitter,etherscan"
           recursiveLinks: true # Check all URLs on all reachable pages (could take a while)
       - name: Get the result
         run: echo "${{steps.link-report.outputs.result}}"
