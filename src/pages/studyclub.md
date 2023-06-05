@@ -9,19 +9,15 @@ RISC Zero's Study Club sessions aim to introduce the pre-requisite concepts nece
 ## Upcoming Sessions
 We'll post announcements for upcoming talks on this page, on [Twitter](https://twitter.com/risczero), and on [Discord](https://discord.gg/risczero).
 
-**Continuations in zkVM: Enabling large computations, easily <br/>
-Frank Laub, Co-founder & CTO <br/>
-May 31, 9am Pacific // 4pm UTC <br/>
-[Zoom Link] <br/>**
-We recently released a new feature called [continuations], that removes the "cycle limit" for RISC Zero's proof generation. 
-This feature unlocks the ability to run an EVM or WASM interpreter inside our zkVM. This talk will cover both how continuations work and how to use them.<br/>
-
+**Save the date: June 14th, 9am Pacific // 4pm UTC** <br/>
+Title & talk description will be announced soon. 
 
 ## Past Sessions
 Full recordings and slides from past sessions are available [here](https://www.youtube.com/playlist?list=PLcPzhUaCxlCjdhONxEYZ1dgKjZh3ZvPtl)
 
 ### Zero-Knowledge Virtual Machines
 - [What RISC-V has to do with RISC Zero's zkVM](https://www.youtube.com/watch?v=11DIflEwx50&list=PLcPzhUaCxlCjdhONxEYZ1dgKjZh3ZvPtl&index=5)
+- [Continuations: Scaling in zkVM](https://www.youtube.com/watch?v=h1qWnf-M5lo&list=PLcPzhUaCxlCjdhONxEYZ1dgKjZh3ZvPtl&index=9)
 
 ### Mathematical Primitives
 - [Intro Finite Fields](https://www.youtube.com/watch?v=g-GDvnJsZgg&list=PLcPzhUaCxlCiddOGuYdDbFlZhH8nwtR8D)
