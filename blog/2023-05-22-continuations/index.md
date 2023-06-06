@@ -6,7 +6,7 @@ tags: [zk, continuations, evm]
 ---
 
 [zkevm-vs-zkvm]: https://www.risczero.com/blog/zkVM
-[evm-example-github]: https://github.com/risc0/risc0/tree/main/examples/evm
+[evm-example-github]: https://github.com/risc0/risc0/tree/main/examples/zkevm-demo
 [odra-zkvm-evm]: https://odra.dev/blog/evm-at-risc0/
 [SputnikVM]: https://github.com/rust-blockchain/evm/
 [zkPoEX]: https://github.com/zkoranges/zkPoEX
