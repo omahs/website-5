@@ -9,9 +9,6 @@ RISC Zero's Study Club sessions aim to introduce the pre-requisite concepts nece
 ## Upcoming Sessions
 We'll post announcements for upcoming talks on this page, on [Twitter](https://twitter.com/risczero), and on [Discord](https://discord.gg/risczero).
 
-**Save the date: June 14th, 9am Pacific // 4pm UTC** <br/>
-Title & talk description will be announced soon. 
-
 ## Past Sessions
 Full recordings and slides from past sessions are available [here](https://www.youtube.com/playlist?list=PLcPzhUaCxlCjdhONxEYZ1dgKjZh3ZvPtl)
 
