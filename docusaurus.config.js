@@ -71,7 +71,7 @@ const config = {
           {
             position: 'left',
             label: 'Getting Started',
-            to: 'docs',
+            to: 'https://dev.risczero.com',
           },
           {
             position: 'left',
