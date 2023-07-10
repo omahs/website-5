@@ -23,7 +23,7 @@ In order to achieve this objective, we rely on:
 
 >- `Clear Purpose`: We aim for single-purpose docs, and we head each document with a succinct statement of purpose and pointers to related content. 
 We use roadmaps, signposting, headings, and text formatting to guide the reader's attention toward the purpose of the doc. 
->- `Keep it Simple`: We write short sentences with minimal superflous language. 
+>- `Keep it Simple`: We write short sentences with minimal superfluous language. 
 We keep content digestible by splitting long docs into smaller chunks.
 >- `Progressive Disclosure`: Our landing pages are simple and clear. 
 Both at the level of site-organization and individual doc-organization, we present a bird's eye view first with opt-in paths toward higher levels of detail and technicality. 

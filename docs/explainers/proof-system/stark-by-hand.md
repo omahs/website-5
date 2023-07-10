@@ -322,7 +322,7 @@ In the RISC Zero protocol, the final round of FRI occurs when the polynomial has
 The Prover sends a vector of 1024 evaluations, which the Verifier interpolates to confirm that the evaluations correspond to a low-degree polynomial.
 
 ## Lesson 12: FRI Protocol (Query Phase)
-> After the commmit phase is completed, the Verifier makes a number of *queries*. 
+> After the commit phase is completed, the Verifier makes a number of *queries*. 
 > In this lesson, we show the mechanics of a single query.
 > 
 > The queries serve as a random challenge, testing the legitimacy of the Prover's commitments. 

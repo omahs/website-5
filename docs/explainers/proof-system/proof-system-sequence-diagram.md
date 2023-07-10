@@ -16,7 +16,7 @@ If you have questions/feedback or if you find errors, please let us know on Twit
 
 ```mermaid
 sequenceDiagram
-    Note over Prover,Verifier: Phase 1: Commiting the  Execution Trace
+    Note over Prover,Verifier: Phase 1: Committing the  Execution Trace
     Note over Prover: Prover runs iNTTs to construct <br/>a Trace Polynomial for each Trace Column, then runs NTTs <br/>to evaluate each Trace Polynomial over an Evaluation Domain,<br/>and commits those evaluations to Merkle Trees.
     Note right of Prover:  Prover sends Merkle Roots <br/>for Trace Data Polynomials <br/>and Trace Control Polynomials
     Prover->>Verifier: 
