@@ -75,7 +75,7 @@ test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; fini
 If you run into any problems, feel free to ask on [Discord](https://discord.gg/risczero) and check [GitHub Issues](https://github.com/risc0/risc0/issues).
 
 ## A Trustless, Decentralized Battleship
-Let's peek under the hood at how we use the RISC Zero Virtual Machine (zkVM) to offer a trustless implementation of Battleship. For definitions of key terms, see our [Key Terminology](/docs/terminology) page. 
+Let's peek under the hood at how we use the RISC Zero Virtual Machine (zkVM) to offer a trustless implementation of Battleship. For definitions of key terms, see our [Key Terminology](/terminology) page. 
 
 ### The RISC Zero zkVM
 ```mermaid
@@ -450,4 +450,4 @@ More likely, an adversary will attempt to construct a valid `RoundMessage` that 
 
 ## Closing
 
-Hopefully, this is a useful introduction to how ZKPs and specifically RISC Zero can be used to build trustworthy distributed applications. There are a growing set of [examples](https://github.com/risc0/risc0/tree/main/examples) in C++ and Rust. If you run into any problems feel free to ask on [Discord](https://discord.gg/risczero) and check [GitHub Issues](https://github.com/risc0/risc0/issues).
+Hopefully, this is a useful introduction to how ZKPs and specifically RISC Zero can be used to build trustworthy distributed applications. There are a growing set of [examples](https://github.com/risc0/risc0/tree/v0.16.0/examples) in C++ and Rust. If you run into any problems feel free to ask on [Discord](https://discord.gg/risczero) and check [GitHub Issues](https://github.com/risc0/risc0/issues).

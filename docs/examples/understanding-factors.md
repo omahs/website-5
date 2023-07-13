@@ -3,7 +3,7 @@ slug: starter
 title: Understanding Factors
 ---
 
-The [Factors tutorial](https://github.com/risc0/risc0/tree/main/examples/factors#tutorial) tells you how to write code that proves you know the factors of a number -- but what is this code doing? What mechanisms does the RISC Zero zkVM use to prove the execution of the source code you provide it?
+The [Factors tutorial](https://github.com/risc0/risc0/tree/v0.16.0/examples/factors#tutorial) tells you how to write code that proves you know the factors of a number -- but what is this code doing? What mechanisms does the RISC Zero zkVM use to prove the execution of the source code you provide it?
 
 The complete answer to those questions requires detailed and precise cryptographic arguments. Nevertheless, here we present a short summary of what the zkVM is doing in the Factors tutorial, as an overview of the general approach of the RISC Zero zkVM. We hope that this overview helps orient you to the components of the RISC Zero zkVM, and gives a sense of why it might be plausible that code executed in the zkVM could be proven to parties who don't trust the prover.
 
@@ -15,7 +15,7 @@ By reading this post, you should learn, at a high level:
 
 This post will not cover:
 * A detailed cryptographic analysis of the RISC Zero zkVM (see our [proof system explainers and reference materials](../explainers))
-* How to write code using the RISC Zero zkVM (see the [Factors tutorial](https://github.com/risc0/risc0/tree/main/examples/factors#tutorial), or [our examples generally](https://github.com/risc0/risc0/tree/main/examples))
+* How to write code using the RISC Zero zkVM (see the [Factors tutorial](https://github.com/risc0/risc0/tree/v0.16.0/examples/factors#tutorial), or [our examples generally](https://github.com/risc0/risc0/tree/v0.16.0/examples))
 
 While the general concepts discussed in this article should persist across versions, our API is undergoing many changes prior to our 1.0 release, so some details here may be version-specific. This article was last updated for [v0.14](https://github.com/risc0/risc0/releases/tag/v0.14.0).
 
@@ -33,7 +33,7 @@ When the host code executes, it creates a prover instance that is responsible fo
     let mut prover = Prover::new(MULTIPLY_ELF)
 ```
 
- The prover runs an ELF binary of the zkVM guest code. After the guest code has executed, the prover returns a [receipt](https://docs.rs/risc0-zkvm/latest/risc0_zkvm/receipt/). In our example, these are accomplished with the following line in the `src/main.rs` host source code:
+ The prover runs an ELF binary of the zkVM guest code. After the guest code has executed, the prover returns a [receipt](https://docs.rs/risc0-zkvm/0.16/risc0_zkvm/receipt/). In our example, these are accomplished with the following line in the `src/main.rs` host source code:
 
 ```rust
 let receipt = prover.run()
@@ -42,7 +42,7 @@ let receipt = prover.run()
 # Understanding the prover
 
 When a prover runs code on the zkVM, two important things happen:
-1. The ELF binary execution produces an [execution trace](https://www.risczero.com/docs/explainers/proof-system/what_is_a_trace). If valid, the trace generates a `cryptographic seal` that shows the execution followed RISC-V rules.
+1. The ELF binary execution produces an [execution trace](https://www.risczero.com/proof-system/what_is_a_trace). If valid, the trace generates a `cryptographic seal` that shows the execution followed RISC-V rules.
 2. Any values the guest shares are written to the `journal`.
 
 A hash of the journal is included in the cryptographic seal so that the recipient will know if it has been altered.
@@ -69,7 +69,7 @@ style B fill:#3c6464
 style x fill:none, stroke:none
 ```
 
-For more details on this process, see our [zkVM Overview](https://www.risczero.com/docs/explainers/zkvm/); for maximal detail, see our [proof system sequence diagram](https://www.risczero.com/docs/explainers/proof-system/proof-system-sequence-diagram). In the next section, we'll show how this process is managed from the perspective of the host program, the guest zkVM program, and the prover object that we call from the host.
+For more details on this process, see our [zkVM Overview](https://www.risczero.com/zkvm/); for maximal detail, see our [proof system sequence diagram](https://www.risczero.com/proof-system/). In the next section, we'll show how this process is managed from the perspective of the host program, the guest zkVM program, and the prover object that we call from the host.
 
 # Interacting with the prover
 

@@ -1,7 +1,7 @@
 # About Finite Fields
 
 *RISC Zero's [computational receipts] are built by converting an assertion of computational integrity into an assertion about polynomials over finite fields. 
-This document serves as a minimal introduction to finite fields, targeted at folks who have some exposure to modular arithmetic and who are curious to learn more about the [math and cryptography behind RISC Zero](../explainers/proof-system/proof-system.md).*  
+This document serves as a minimal introduction to finite fields, targeted at folks who have some exposure to modular arithmetic and who are curious to learn more about the [math and cryptography behind RISC Zero](../proof-system/proof-system.md).*  
 
 ## Finite Fields 101: Reciprocals, Exponents, and Generators
 Loosely speaking, a **field** is a set of elements for which addition, subtraction, multiplication, and division work cleanly.  
@@ -52,4 +52,4 @@ More generally, multiplying by a 4th root of unity is a rotation of order 4.`
 - [A. Sutherland's notes on finite fields and integer arithmetic](https://math.mit.edu/classes/18.783/2017/LectureNotes3.pdf)
 - [Splitting $x^{n}-1$ over a finite field](https://math.stackexchange.com/questions/2511486/)
 
-[computational receipts]: https://docs.rs/risc0-zkvm/latest/risc0_zkvm/receipt/
+[computational receipts]: https://docs.rs/risc0-zkvm/0.16/risc0_zkvm/receipt/

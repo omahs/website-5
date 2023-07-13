@@ -8,7 +8,7 @@ const katex = require('rehype-katex');
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'RISC Zero',
+  title: 'RISC Zero Developer Docs',
   tagline: 'Hyper-Efficient General Purpose Zero-Knowledge Computing.',
   url: 'https://risczero.com',
   baseUrl: '/',
@@ -23,6 +23,7 @@ const config = {
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
         docs: {
+          routeBasePath: '/',
           remarkPlugins: [math, require('mdx-mermaid')],
           rehypePlugins: [katex],
           sidebarPath: require.resolve('./sidebars.js'),
@@ -62,7 +63,7 @@ const config = {
         respectPrefersColorScheme: false,
       },
       navbar: {
-        title: 'RISC Zero',
+        title: 'RISC Zero Developer Docs',
         logo: {
           alt: 'Risc0 Logo',
           src: 'img/logo.png',
@@ -70,33 +71,23 @@ const config = {
         items: [
           {
             position: 'left',
-            label: 'Getting Started',
-            to: 'https://dev.risczero.com',
+            label: 'Introduction',
+            to: '/',
           },
           {
             position: 'left',
-            label: 'Technology',
-            to: 'docs/explainers',
+            label: 'zkVM',
+            to: 'zkVM',
           },
           {
-            label: 'Blog',
             position: 'left',
-            to: '/blog'
-          },
-          {
-            href: 'https://jobs.lever.co/risczero.com',
-            position: 'left',
-            label: 'Careers',
+            label: 'Bonsai',
+            to: 'bonsai',
           },
           {
             href: 'https://github.com/Risc0',
             position: 'right',
             label: 'GitHub',
-          },
-          {
-            label: 'Mailing List',
-            position: 'right',
-            to: 'mailing',
           },
          {
             type: 'dropdown',
@@ -121,7 +112,7 @@ const config = {
               },
               {
                 label: 'Contributor\'s Guide',
-                to: 'docs/contributors-guide',
+                to: 'contributors-guide',
               },
             ]
           },
