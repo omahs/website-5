@@ -27,9 +27,9 @@ Under the hood, Bonsai uses the RISC Zero zkVM to prove your programs. With the 
 
 ## Bonsai: A zero-knowledge proving service
 
-_Status: Pre-Alpha, [waitlist] available_
+_Status: Pre-Alpha_
 
-The Bonsai proving service can be used standalone or directly integrated with smart contracts and blockchains. If you're interested in Bonsai, join our [waitlist], and learn more in our [litepaper] and [talks](https://youtu.be/nVAs2i-_Iyo?t=3044).
+The Bonsai proving service can be used standalone or directly integrated with smart contracts and blockchains. If you're interested in Bonsai, learn more in our [litepaper] and [talks](https://youtu.be/nVAs2i-_Iyo?t=3044).
 
 ## Bonsai ETH Relay: Connecting off-chain proofs and on-chain applications
 
@@ -41,5 +41,4 @@ The Bonsai ETH Relay connects your Ethereum dApps to Bonsai. Smart contract deve
 
 We're building technology that allows anyone to generate highly performant zero-knowledge proofs for a variety of applications. We want to make zero-knowledge proof integration into Ethereum, L1 blockchains, Cosmos app chains, L2 rollups, and dApps possible with minimal development effort. To learn more, read our [litepaper].
 
-[waitlist]: https://fmree464va4.typeform.com/to/t6hZD54Z
 [litepaper]: ../litepaper
