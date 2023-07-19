@@ -23,7 +23,7 @@ See also: [env::commit()]
 
 ### Continuations
 [Continuations study club]: https://www.youtube.com/watch?v=v4HIwaqmIxk&list=PLcPzhUaCxlCirUkJY0ltpjdtzWcz5U_6y&index=1
-[Continuations blog]: https://risczero.com/blog/continuations
+[Continuations blog]: https://www.risczero.com/news/continuations
 As of our 0.15 release, the [zkVM] uses continuations to enable proof generation for very large programs without blowing up memory requirements.
 Large proof generation is made possible by splitting the execution trace for a single [session] into a number of [segments], and proving those segments independently. <br/>
 See also: [Continuations study club], [Continuations blog]

@@ -55,7 +55,7 @@ Check out [Bonsai].
 [guest programs]: ../terminology#guest-program
 [host]: ../terminology#host-program
 [host program]: ../terminology#host-program
-[JPG and JSON]: https://risczero.com/blog/waldo
+[JPG and JSON]: https://www.risczero.com/news/waldo
 [performance benchmarks]: benchmarks
 [prove]: ../terminology#validity-proof
 [proofs]: ../terminology#validity-proof
