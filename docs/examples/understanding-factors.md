@@ -130,7 +130,7 @@ If we send the receipt to someone else, then they can see we ran the expected pr
 
 For brevity (and to stay agnostic about use cases), our Factors example omits a few steps that would typically happen after the prover generates a receipt.
 
-In our example, the receipt is verified from the host program. However, the value of the receipt is that it can convince another party we ran the guest program. In a real-world scenario, then, we would want to send the receipt to someone else, most likely by serializing it and passing it over a network.
+In our example, the receipt is verified by the host program. However, the value of the receipt is that it can convince another party we ran the guest program. In a real-world scenario, then, we would want to send the receipt to someone else, most likely by serializing it and passing it over a network.
 
 We would also want to give the source code for the guest program to the recipient. The recipient would generate the `image ID` of the zkVM program binary on their side and use this to check the receipt's image ID.
 
