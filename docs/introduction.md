@@ -37,7 +37,7 @@ This is similar to the very successful pattern used in Nvidia's CUDA C++ toolcha
 
 A zero-knowledge virtual machine (zkVM) is a virtual machine that runs trusted code and generates proofs that authenticate the zkVM output. RISC Zero's zkVM implementation, based on the RISC-V architecture, executes code and produces a [computational receipt].
 
-Writing zkApps on RISC Zero is (almost) as straight-forward as building any other Rust project. No need to learn a custom language or any fancy math or cryptography. 
+Writing zkApps on RISC Zero is (almost) as straightforward as building any other Rust project. No need to learn a custom language or any fancy math or cryptography. 
 
 ![A zkVM architecture diagram](img/zkvm.jpg)
 
