@@ -3,7 +3,7 @@
 *Note: The Bonsai proving service is still in early Alpha; an API key is required for access. 
 [Click here to request access].*
 
-If you have already have an API key, you can start building on Bonsai in any of the following ways: 
+If you already have an API key, you can start building on Bonsai in any of the following ways: 
 - via **[cargo risczero]** (great for experimenting or for non-blockchain applications)
     - Enable Bonsai by setting the environment variables `BONSAI_API_KEY=<YOUR_API_KEY>` and `BONSAI_API_URL=<BONSAI_URL>` when running your program
 - via the **[Bonsai Foundry Template]** (for accessing Bonsai via Ethereum)
