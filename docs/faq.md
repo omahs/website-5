@@ -208,7 +208,7 @@ A: The image ID can be determined from the compiled ELF source code.
 Someone wishing to confirm that a receipt corresponds to Rust source code can compile that code targeting the RISC Zero zkVM and verify that the image ID resulting from this compilation matches the image ID in the receipt. <br/> <br/>
 
 *Note: We plan to enable a deterministic connection between the Rust source code and the image ID. 
-At the moment, the conversion from Rust source code to ELF binary is non-determinstic (because `cargo` builds are non-determinstic).  
+At the moment, the conversion from Rust source code to ELF binary is non-deterministic (because `cargo` builds are non-deterministic).  
 What this means for zkVM application design is that checking the correctness of the ImageID requires access to the compiled ELF file. 
 For the latest status on this issue, check the discussion on the <a href="https://https://github.com/risc0/risc0/issues/116">GitHub issue</a>.*
 </details>
